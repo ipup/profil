@@ -1,0 +1,55 @@
+<%
+  # FRONTEND VIEW: Home
+  #
+  # Default page for Frontend
+  # Displays user's links
+%>
+<h1>Home</h1>
+
+<div id="business_card">
+  <!-- Include the identity template -->
+  <div id="basic_infos">
+    <%= render :template => 'frontend/identity.html.erb' %>
+  </div>
+    
+  <ul id="personal_links">
+    <!-- Links for social API -->
+    <% if !@user.user_content.twitter_token.blank? %>
+      <li class="colorbox_twitter" href="<%= @twitter_url %>">
+        <%= link_to (image_tag "iconeTwitterT.png", :href => @twitter_url), @twitter_url %>
+        <%= link_to "Twitter", @twitter_url, :class => "personal_link_title" %>
+      </li>
+    <% end %>
+    
+    <% if !@user.user_content.facebook_token.blank? %> 
+      <li class="colorbox_facebook" href="<%= @facebook_url %>"> 
+        <%= link_to (image_tag "iconeFacebookT.png", :href => @facebook_url), @facebook_url %>
+        <%= link_to "Facebook", @facebook_url, :class => "personal_link_title" %>
+      </li>
+    <% end %>
+    
+    <% if !@user.user_content.linkedin_token.blank? %>
+      <li class="colorbox_linkedin" href="<%= @linkedin_url %>">
+        <%= link_to (image_tag "iconeLinkedInT.png", :href => @linkedin_url), @linkedin_url %>
+        <%= link_to "LinkedIn", @linkedin_url, :class => "personal_link_title" %>
+      </li>
+    <% end %>
+  
+    <!-- Links to user's other links -->
+    <% if !@user.external_links.empty? then %>
+      <% @user.external_links.each do |link| %>
+        <% if link.confidential == false || known_user? %> <!-- Public info or logged user -->
+          <li>          
+            <% if link.icon? %>
+              <%= link_to (image_tag link.icon.to_s), link.url, :target => "_blank" %>
+            <% else %>
+              <%= link_to (image_tag "extlink.png"), link.url, :target => "_blank" %>
+            <% end %>
+            <%= link_to link.title, link.url, :target => "_blank", :class => "personal_link_title" %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>  
+  </ul>
+</div>
+

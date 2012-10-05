@@ -1,0 +1,13 @@
+# config/twitter.yml
+development:
+ api_key: wzGtrCXr2j8Z9eTXN33zw
+ secret_key: ZNmyTcKW3AWV5L4h2Ca70AIWuzqA3BZs2lr4mC0QoDc
+ callback_url: http://nameup.heroku.com/backend/social/twitter
+test:
+ api_key: wzGtrCXr2j8Z9eTXN33zw
+ secret_key: ZNmyTcKW3AWV5L4h2Ca70AIWuzqA3BZs2lr4mC0QoDc
+ callback_url: http://nameup.heroku.com/backend/social/twitter
+production:
+ api_key: wzGtrCXr2j8Z9eTXN33zw
+ secret_key: ZNmyTcKW3AWV5L4h2Ca70AIWuzqA3BZs2lr4mC0QoDc
+ callback_url: http://nameup.heroku.com/backend/social/twitter

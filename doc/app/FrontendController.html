@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: FrontendController</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./app/controllers/frontend_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="app/controllers/frontend_controller.rb">app/controllers/frontend_controller.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="ApplicationController.html">ApplicationController</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-about">#about</a></li>
+					
+					<li><a href="#method-i-checkcode">#checkcode</a></li>
+					
+					<li><a href="#method-i-contact">#contact</a></li>
+					
+					<li><a href="#method-i-create_url">#create_url</a></li>
+					
+					<li><a href="#method-i-facebook">#facebook</a></li>
+					
+					<li><a href="#method-i-home">#home</a></li>
+					
+					<li><a href="#method-i-linkedin">#linkedin</a></li>
+					
+					<li><a href="#method-i-notfound">#notfound</a></li>
+					
+					<li><a href="#method-i-online_resume">#online_resume</a></li>
+					
+					<li><a href="#method-i-private_mode">#private_mode</a></li>
+					
+					<li><a href="#method-i-public_mode">#public_mode</a></li>
+					
+					<li><a href="#method-i-twitter">#twitter</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><span class="include">ActionView::Helpers::DateHelper</span></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./ApplicationController.html">ApplicationController</a></li>
+				
+					<li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
+				
+					<li><a href="./BackendController.html">BackendController</a></li>
+				
+					<li><a href="./BackendHelper.html">BackendHelper</a></li>
+				
+					<li><a href="./ConfirmationsController.html">ConfirmationsController</a></li>
+				
+					<li><a href="./CustomFailure.html">CustomFailure</a></li>
+				
+					<li><a href="./Customization.html">Customization</a></li>
+				
+					<li><a href="./CustomizationsController.html">CustomizationsController</a></li>
+				
+					<li><a href="./ExternalLink.html">ExternalLink</a></li>
+				
+					<li><a href="./ExternalLinksController.html">ExternalLinksController</a></li>
+				
+					<li><a href="./FileCvUploader.html">FileCvUploader</a></li>
+				
+					<li><a href="./FrontendController.html">FrontendController</a></li>
+				
+					<li><a href="./FrontendHelper.html">FrontendHelper</a></li>
+				
+					<li><a href="./HomeController.html">HomeController</a></li>
+				
+					<li><a href="./HomeHelper.html">HomeHelper</a></li>
+				
+					<li><a href="./IconUploader.html">IconUploader</a></li>
+				
+					<li><a href="./ImgBackgroundUploader.html">ImgBackgroundUploader</a></li>
+				
+					<li><a href="./InviteCode.html">InviteCode</a></li>
+				
+					<li><a href="./InviteCodesController.html">InviteCodesController</a></li>
+				
+					<li><a href="./Notifier.html">Notifier</a></li>
+				
+					<li><a href="./OnlineCvField.html">OnlineCvField</a></li>
+				
+					<li><a href="./OnlineCvFieldsController.html">OnlineCvFieldsController</a></li>
+				
+					<li><a href="./PasswordsController.html">PasswordsController</a></li>
+				
+					<li><a href="./PictureUploader.html">PictureUploader</a></li>
+				
+					<li><a href="./RegistrationsController.html">RegistrationsController</a></li>
+				
+					<li><a href="./Support.html">Support</a></li>
+				
+					<li><a href="./SupportsController.html">SupportsController</a></li>
+				
+					<li><a href="./SupportsHelper.html">SupportsHelper</a></li>
+				
+					<li><a href="./User.html">User</a></li>
+				
+					<li><a href="./UserContent.html">UserContent</a></li>
+				
+					<li><a href="./UserContentsController.html">UserContentsController</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">FrontendController</h1>
+
+		<div id="description">
+			<p>
+FRONTEND CONTROLLER : Everything related to &#8217;/:domain/&#8217;
+links.
+</p>
+<p>
+That&#8217;s the public part of our application. It displays the
+information of one of our user.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="about-method" class="method-detail ">
+				<a name="method-i-about"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">about</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+ABOUT : GET &#8217;/:domain/about&#8217;
+</p>
+<p>
+Displays the user description (user.user_contents.description) Will
+respond with &#8216;/views/frontend/about.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="about-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 64</span>
+64:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">about</span>
+65:                 <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL</span>
+66:     <span class="ruby-identifier">create_url</span> <span class="ruby-comment cmt"># Create the correct inner links</span>
+67:     
+68:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+69:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+70:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># about.html.erb</span>
+71:       <span class="ruby-keyword kw">else</span>    
+72:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+73:       <span class="ruby-keyword kw">end</span>
+74:     <span class="ruby-keyword kw">end</span>
+75:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="checkcode-method" class="method-detail ">
+				<a name="method-i-checkcode"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">checkcode</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+CHECKCODE: POST &#8216;checkcode&#8217; Params:
+</p>
+<ul>
+<li><p>
+pid   : user&#8217;s id
+</p>
+</li>
+<li><p>
+pcode : code posted by the visitor
+</p>
+</li>
+</ul>
+<p>
+Our privacy function. Will compare visitor&#8217;s entered code with
+user&#8217;s defined code. Will create session and increment code&#8217;s
+use counter if code is valid Will display an error message if code is
+invalid Will respond with redirection to page where user came from
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="checkcode-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 265</span>
+265:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkcode</span>
+266:     <span class="ruby-comment cmt"># Try to find if our user has create the code entered by our visitor.</span>
+267:     <span class="ruby-identifier">code</span> = <span class="ruby-constant">InviteCode</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:pid</span>],<span class="ruby-value">:code</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:pcode</span>]).<span class="ruby-identifier">first</span>
+268:     
+269:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">code</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-comment cmt"># Code valid</span>
+270:       <span class="ruby-comment cmt"># Increment use counter and saving object</span>
+271:       <span class="ruby-identifier">code</span>.<span class="ruby-identifier">use_counter</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+272:       <span class="ruby-identifier">code</span>.<span class="ruby-identifier">save</span>
+273:       
+274:       <span class="ruby-comment cmt"># Create the session with our user id in it so we know what pages he/she can access.</span>
+275:       <span class="ruby-comment cmt"># By doing that, we make sure he/she won't access another user's private informations.</span>
+276:       <span class="ruby-identifier">session</span>[<span class="ruby-value">:code</span>] =  <span class="ruby-identifier">params</span>[<span class="ruby-value">:pid</span>]
+277:       <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">referer</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Log in successful'</span>)
+278:     <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># Code invalid</span>
+279:       <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">referer</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Code not valid.'</span>)
+280:     <span class="ruby-keyword kw">end</span>
+281:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="contact-method" class="method-detail ">
+				<a name="method-i-contact"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">contact</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+CONTACT : GET &#8217;/:domain/contact&#8217;
+</p>
+<p>
+Online contact form for sending our user a mail Will respond with
+&#8216;/views/frontend/contact.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="contact-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 85</span>
+85:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contact</span>
+86:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL</span>
+87:     <span class="ruby-ivar">@support</span> = <span class="ruby-constant">Support</span>.<span class="ruby-identifier">new</span>  <span class="ruby-comment cmt"># Create our Notifier. It's our email sending module.</span>
+88:     <span class="ruby-identifier">create_url</span> <span class="ruby-comment cmt"># Create the correct inner links</span>
+89:     
+90:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+91:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+92:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># contact.html.erb</span>
+93:       <span class="ruby-keyword kw">else</span>    
+94:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+95:       <span class="ruby-keyword kw">end</span>
+96:     <span class="ruby-keyword kw">end</span>
+97:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="facebook-method" class="method-detail ">
+				<a name="method-i-facebook"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">facebook</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+FACEBOOK: GET &#8217;/:domain/facebook&#8217;
+</p>
+<p>
+Our user&#8217;s facebook feed. Should be display inside a lightbox
+(colorbox plugin) Can be accessed directly for visitor without JS. Will
+respond with &#8216;/views/frontend/facebook.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="facebook-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 150</span>
+150:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">facebook</span>
+151:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL</span>
+152:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+153:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> <span class="ruby-comment cmt"># Generate 404 error</span>
+154:     <span class="ruby-keyword kw">end</span>
+155:     
+156:     <span class="ruby-comment cmt"># FACEBOOK</span>
+157:     <span class="ruby-ivar">@fb_token</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">user_content</span>.<span class="ruby-identifier">facebook_token</span>
+158:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@fb_token</span>
+159:       <span class="ruby-identifier">graph</span> = <span class="ruby-constant">Koala</span><span class="ruby-operator">::</span><span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">GraphAPI</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fb_token</span>)
+160:       <span class="ruby-ivar">@fb_user</span> = <span class="ruby-identifier">graph</span>.<span class="ruby-identifier">get_object</span>(<span class="ruby-value str">&quot;me&quot;</span>)
+161:       <span class="ruby-ivar">@feed</span> = <span class="ruby-identifier">graph</span>.<span class="ruby-identifier">get_connections</span>(<span class="ruby-value str">&quot;me&quot;</span>, <span class="ruby-value str">&quot;feed&quot;</span>)
+162:       <span class="ruby-ivar">@fb_timeline</span> = []
+163:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@feed</span>
+164:         <span class="ruby-ivar">@feed</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+165:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">f</span>[<span class="ruby-value str">&quot;from&quot;</span>][<span class="ruby-value str">&quot;id&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@fb_user</span>[<span class="ruby-value str">&quot;id&quot;</span>] 
+166:             <span class="ruby-ivar">@fb_timeline</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">f</span>)
+167:           <span class="ruby-keyword kw">end</span>
+168:         <span class="ruby-keyword kw">end</span>
+169:       <span class="ruby-keyword kw">end</span>
+170:     <span class="ruby-keyword kw">end</span>
+171: 
+172:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+173:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+174:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;social_networks&quot;</span> } 
+175:       <span class="ruby-keyword kw">else</span>
+176:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+177:       <span class="ruby-keyword kw">end</span>
+178:     <span class="ruby-keyword kw">end</span>
+179:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="home-method" class="method-detail ">
+				<a name="method-i-home"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">home</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+HOME : GET &#8217;/:domain/&#8217;
+</p>
+<p>
+Homepage of the FrontEnd: Displays the social links of our user. Will
+respond with &#8216;/views/frontend/home.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="home-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 19</span>
+19:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">home</span>
+20:                 <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL</span>
+21:                 <span class="ruby-identifier">create_url</span> <span class="ruby-comment cmt"># Create the correct inner links</span>
+22:                 
+23:                 <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+24:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+25:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># home.html.erb</span>
+26:       <span class="ruby-keyword kw">else</span>    
+27:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+28:       <span class="ruby-keyword kw">end</span>
+29:     <span class="ruby-keyword kw">end</span>
+30:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="linkedin-method" class="method-detail ">
+				<a name="method-i-linkedin"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">linkedin</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+LINKEDIN: GET &#8217;/:domain/linkedin&#8217;
+</p>
+<p>
+Our user&#8217;s linkedin feed. Should be display inside a lightbox
+(colorbox plugin) Can be accessed directly for visitor without JS. Will
+respond with &#8216;/views/frontend/linkedin.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="linkedin-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 190</span>
+190:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">linkedin</span>
+191:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL</span>
+192:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+193:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> <span class="ruby-comment cmt"># Generate 404 error</span>
+194:     <span class="ruby-keyword kw">end</span>
+195:     
+196:     <span class="ruby-comment cmt"># LINKEDIN    </span>
+197:     <span class="ruby-comment cmt"># PROFILE</span>
+198:     <span class="ruby-identifier">client</span> = <span class="ruby-constant">LinkedIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">LinkedIn</span><span class="ruby-operator">::</span><span class="ruby-constant">API_KEY</span>, <span class="ruby-constant">LinkedIn</span><span class="ruby-operator">::</span><span class="ruby-constant">SECRET_KEY</span>)
+199:     <span class="ruby-identifier">client</span>.<span class="ruby-identifier">authorize_from_access</span>(<span class="ruby-ivar">@user</span>.<span class="ruby-identifier">user_content</span>.<span class="ruby-identifier">linkedin_token</span>, <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">user_content</span>.<span class="ruby-identifier">linkedin_secret</span>)
+200:     <span class="ruby-identifier">profile</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">profile</span>(<span class="ruby-value">:fields</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:id</span>, <span class="ruby-value">:first_name</span>, <span class="ruby-value">:last_name</span>, <span class="ruby-value">:summary</span>, <span class="ruby-value">:educations</span>, <span class="ruby-value">:positions</span>, <span class="ruby-value">:headline</span>])
+201:     <span class="ruby-ivar">@linkedin_id</span> = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">id</span>
+202:     <span class="ruby-comment cmt"># NAME</span>
+203:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'first_name'</span>)
+204:       <span class="ruby-ivar">@firstName</span> = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">first_name</span>
+205:     <span class="ruby-keyword kw">end</span>
+206:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'last_name'</span>)
+207:       <span class="ruby-ivar">@lastName</span> = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">last_name</span>
+208:     <span class="ruby-keyword kw">end</span>
+209:     <span class="ruby-comment cmt"># CURRENT STATUS</span>
+210:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'current_status'</span>)
+211:       <span class="ruby-ivar">@currentStatus</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">current_status</span>
+212:     <span class="ruby-keyword kw">end</span>
+213:     <span class="ruby-comment cmt"># EDUCATION - SCHOOL    </span>
+214:     <span class="ruby-ivar">@eduSchool</span> = []
+215:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'educations'</span>)
+216:       <span class="ruby-identifier">educations</span> = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">educations</span>
+217:       <span class="ruby-identifier">educations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+218:         <span class="ruby-ivar">@eduSchool</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">school_name</span>)
+219:       <span class="ruby-keyword kw">end</span>
+220:      <span class="ruby-comment cmt"># SUMMARY</span>
+221:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'summary'</span>)
+222:           <span class="ruby-ivar">@summary</span> = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">summary</span>
+223:       <span class="ruby-keyword kw">end</span>
+224:     <span class="ruby-comment cmt"># POSITIONS</span>
+225:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'positions'</span>)
+226:         <span class="ruby-ivar">@positionsFirm</span> = []
+227:         <span class="ruby-identifier">positions</span> = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">positions</span>
+228:         <span class="ruby-identifier">positions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+229:           <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">p</span>.<span class="ruby-identifier">title</span>.<span class="ruby-identifier">nil?</span>
+230:             <span class="ruby-ivar">@positionsFirm</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">title</span>)
+231:           <span class="ruby-keyword kw">end</span>
+232:           <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">p</span>.<span class="ruby-identifier">company</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+233:             <span class="ruby-ivar">@positionsFirm</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">company</span>.<span class="ruby-identifier">name</span>) 
+234:           <span class="ruby-keyword kw">end</span>              
+235:         <span class="ruby-keyword kw">end</span>
+236:       <span class="ruby-keyword kw">end</span>
+237:     <span class="ruby-comment cmt"># CONNECTIONS</span>
+238:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value str">'connections'</span>)
+239:         <span class="ruby-ivar">@nb_connections</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">connections</span>.<span class="ruby-identifier">length</span>
+240:       <span class="ruby-keyword kw">end</span>
+241:     <span class="ruby-keyword kw">end</span>
+242:     
+243:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+244:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+245:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;social_networks&quot;</span> } 
+246:       <span class="ruby-keyword kw">else</span>
+247:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+248:       <span class="ruby-keyword kw">end</span>
+249:     <span class="ruby-keyword kw">end</span>   
+250:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="notfound-method" class="method-detail ">
+				<a name="method-i-notfound"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">notfound</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+NOTFOUND : GET &#8216;notfound&#8217;
+</p>
+<p>
+Our custom 404 page Will respond with
+&#8216;/views/frontend/notfound.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="notfound-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 329</span>
+329:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">notfound</span>
+330:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+331:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># notfound.html.erb</span>
+332:     <span class="ruby-keyword kw">end</span>
+333:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="online-resume-method" class="method-detail ">
+				<a name="method-i-online_resume"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">online_resume</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+ONLINE RESUME : GET &#8217;/:domain/resume&#8217;
+</p>
+<p>
+Displays the online resume fields Will respond with
+&#8216;/views/frontend/online_resume.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="online-resume-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 40</span>
+40:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">online_resume</span>
+41:                 <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL</span>
+42:                 <span class="ruby-comment cmt"># We want to order our fields by user's pre-defined preferences (displayorder attributes).</span>
+43:                 <span class="ruby-comment cmt"># Can't just use '@user.online_cv_fields'</span>
+44:                 <span class="ruby-ivar">@cv_fields</span> = <span class="ruby-constant">OnlineCvField</span>.<span class="ruby-identifier">find_all_by_user_id</span>(<span class="ruby-ivar">@user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;displayorder&quot;</span>)
+45:     <span class="ruby-identifier">create_url</span> <span class="ruby-comment cmt"># Create the correct inner links</span>
+46:     
+47:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+48:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+49:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment cmt"># online_resume.html.erb</span>
+50:       <span class="ruby-keyword kw">else</span>    
+51:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span>
+54:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="private-mode-method" class="method-detail ">
+				<a name="method-i-private_mode"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">private_mode</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+PRIVATE MODE: POST &#8216;<a
+href="FrontendController.html#method-i-private_mode">private_mode</a>&#8217;
+Params:
+</p>
+<ul>
+<li><p>
+pid   : user&#8217;s id
+</p>
+</li>
+</ul>
+<p>
+Reserved to logged user on their own page Switch to the private view by
+creating the session with his/her id in it Will respond with redirection
+to page where user came from
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="private-mode-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 311</span>
+311:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">private_mode</span>
+312:     <span class="ruby-comment cmt"># Another security - we check again that the user is the owner</span>
+313:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_user</span> <span class="ruby-operator">==</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:pid</span>])
+314:       <span class="ruby-comment cmt"># We grant him rights like he would do with a correct code (checkcode)</span>
+315:       <span class="ruby-identifier">session</span>[<span class="ruby-value">:code</span>] =  <span class="ruby-identifier">params</span>[<span class="ruby-value">:pid</span>]
+316:     <span class="ruby-keyword kw">end</span>
+317:     <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">referer</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Switched to private view'</span>)
+318:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="public-mode-method" class="method-detail ">
+				<a name="method-i-public_mode"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">public_mode</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+PUBLIC MODE: POST &#8216;<a
+href="FrontendController.html#method-i-public_mode">public_mode</a>&#8217;
+Params:
+</p>
+<ul>
+<li><p>
+pid   : user&#8217;s id
+</p>
+</li>
+</ul>
+<p>
+Reserved to logged user on their own page Switch back to the public view
+by destroying the session Will respond with redirection to page where user
+came from
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="public-mode-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 294</span>
+294:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">public_mode</span>
+295:     <span class="ruby-comment cmt"># We need to destroy the session in order to switch back to public mode</span>
+296:     <span class="ruby-identifier">session</span>[<span class="ruby-value">:code</span>] =  <span class="ruby-keyword kw">nil</span>
+297:     <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">referer</span>, <span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Switched to public view'</span>)
+298:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="twitter-method" class="method-detail ">
+				<a name="method-i-twitter"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">twitter</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+TWITTER: GET &#8217;/:domain/twitter&#8217;
+</p>
+<p>
+Our user&#8217;s twitter feed. Should be display inside a lightbox
+(colorbox plugin) Can be accessed directly for visitor without JS. Will
+respond with &#8216;/views/frontend/twitter.html.erb&#8217;
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="twitter-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 108</span>
+108:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">twitter</span>
+109:     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_domain</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>]) <span class="ruby-comment cmt"># Get our correct user depending on the URL    </span>
+110:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+111:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> <span class="ruby-comment cmt"># Generate 404 error</span>
+112:     <span class="ruby-keyword kw">end</span>
+113:     
+114:     <span class="ruby-comment cmt"># TWITTER</span>
+115:     <span class="ruby-identifier">twitter_token</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">user_content</span>.<span class="ruby-identifier">twitter_token</span>
+116:     <span class="ruby-identifier">twitter_secret</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">user_content</span>.<span class="ruby-identifier">twitter_secret</span>
+117:     <span class="ruby-constant">Twitter</span>.<span class="ruby-identifier">configure</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+118:       <span class="ruby-identifier">c</span>.<span class="ruby-identifier">oauth_token</span> = <span class="ruby-identifier">twitter_token</span>
+119:       <span class="ruby-identifier">c</span>.<span class="ruby-identifier">oauth_token_secret</span> = <span class="ruby-identifier">twitter_secret</span>
+120:     <span class="ruby-keyword kw">end</span>
+121:     <span class="ruby-ivar">@timeline_all</span> = []
+122:     <span class="ruby-constant">Twitter</span>.<span class="ruby-identifier">user_timeline</span>(<span class="ruby-value">:count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tweet</span><span class="ruby-operator">|</span>
+123:       <span class="ruby-identifier">d</span> = <span class="ruby-identifier">tweet</span>.<span class="ruby-identifier">created_at</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/.{19}/</span>)[<span class="ruby-value">0</span>]
+124:       <span class="ruby-identifier">dp</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">d</span>)
+125:       <span class="ruby-identifier">date_tweet</span> = <span class="ruby-identifier">time_ago_in_words</span>(<span class="ruby-identifier">dp</span>)
+126:       <span class="ruby-ivar">@timeline_all</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">date_tweet</span>)
+127:       <span class="ruby-ivar">@timeline_all</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">tweet</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">html_safe</span>)
+128:     <span class="ruby-keyword kw">end</span>
+129:     <span class="ruby-ivar">@twitter_id</span> = <span class="ruby-constant">Twitter</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">screen_name</span>
+130:     
+131:     
+132:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+133:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+134:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;social_networks&quot;</span> } 
+135:       <span class="ruby-keyword kw">else</span>
+136:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notfound_path</span> } <span class="ruby-comment cmt"># Generate 404 error</span>
+137:       <span class="ruby-keyword kw">end</span>
+138:     <span class="ruby-keyword kw">end</span>
+139:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="protected-instance-method-details" class="method-section section">
+			<h3 class="section-header">Protected Instance Methods</h3>
+
+		
+			<div id="create-url-method" class="method-detail ">
+				<a name="method-i-create_url"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create_url</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+CREATE URL : Create the links that should be use inside the user&#8217;s
+frontend Links are being created with the domain attributes
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="create-url-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/frontend_controller.rb, line 342</span>
+342:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_url</span>
+343:           <span class="ruby-ivar">@domain_url</span>    = <span class="ruby-identifier">root_url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:domain</span>].<span class="ruby-identifier">to_s</span>
+344:           <span class="ruby-ivar">@resume_url</span>    = <span class="ruby-ivar">@domain_url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/resume/&quot;</span>
+345:           <span class="ruby-ivar">@about_url</span>     = <span class="ruby-ivar">@domain_url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/about/&quot;</span>
+346:           <span class="ruby-ivar">@contact_url</span>   = <span class="ruby-ivar">@domain_url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/contact/&quot;</span>
+347:           <span class="ruby-ivar">@facebook_url</span>  = <span class="ruby-ivar">@domain_url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/facebook/&quot;</span>
+348:           <span class="ruby-ivar">@twitter_url</span>   = <span class="ruby-ivar">@domain_url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/twitter/&quot;</span>
+349:           <span class="ruby-ivar">@linkedin_url</span>  = <span class="ruby-ivar">@domain_url</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;/linkedin/&quot;</span>
+350:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

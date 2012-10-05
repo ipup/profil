@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  field_name: MyString
+  field_content: MyText
+  confidential: 1
+
+two:
+  user_id: 1
+  field_name: MyString
+  field_content: MyText
+  confidential: 1

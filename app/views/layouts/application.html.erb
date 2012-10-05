@@ -1,0 +1,22 @@
+<%
+  # LAYOUT: APPLICATION
+  #
+  # We don't use it.
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Devise</title>
+  <%= javascript_include_tag "jquery.min", "jquery.livequery", "rails" %>
+  <%= init_tinymce_hammer_if_required %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>

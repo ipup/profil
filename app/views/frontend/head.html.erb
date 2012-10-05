@@ -1,0 +1,60 @@
+<!-- All frontend links about our user-->
+<%= link_to (image_tag "iconeHomeT.png", :class => "icone_topleft"), @domain_url %>
+<%= link_to "Home", @domain_url, :class => "topbar_link" %>
+
+<!-- If all field empty, no display -->
+<% if !@user.online_cv_fields.empty? %>
+  <%= link_to (image_tag "iconeResumeT.png", :class => "icone_topleft"), @resume_url %>
+  <%= link_to "Online Resume", @resume_url, :class => "topbar_link" %>
+<% end %>
+
+<!-- If all field empty, no display -->
+<% if !@user.user_content.description.blank? %>
+  <%= link_to (image_tag "iconeAboutT.png", :class => "icone_topleft"), @about_url %>
+  <%= link_to "About", @about_url, :class => "topbar_link" %>
+<% end %>
+
+<%= link_to (image_tag "iconeContactT.png", :class => "icone_topleft"), @contact_url %>
+<%= link_to "Contact", @contact_url, :class => "topbar_link" %>
+
+<!-- Invite Code Field -->
+<% if !known_user? %>
+	<%= form_tag :controller => "frontend" ,:action => "checkcode" do %>
+		<%= image_submit_tag("iconePadlockT.png", :class => "icone_topleft") %>
+	  <%= password_field_tag :pcode,'', :placeholder => "Enter your code", :class => "topbar_textfield" %>
+		<%= hidden_field_tag :pid, @user.id %>	
+	<% end %>
+<% end %>
+
+<!-- Enable the user to see his OWN page in public/private mode and access his Backend -->
+<% if current_user == @user %>
+  <% if !known_user? %> <!-- Mean he's in PUBLIC mode -->
+    <%= form_tag :controller => "frontend" ,:action => "private_mode" do %>
+      <%= hidden_field_tag :pid, @user.id %>
+      <%= submit_tag "View in private mode", :class => "mode_button" %>
+    <% end %>
+  <% else %> <!-- Mean he's in PRIVATE mode --> 
+    <%= form_tag :controller => "frontend" ,:action => "public_mode" do %>
+      <%= hidden_field_tag :pid, @user.id %>
+      <%= submit_tag "View in public mode", :class => "mode_button" %>
+    <% end %>
+  <% end %>
+  
+  <%= link_to "Backend", backend_path, :class => "mode_button no_link", :target => "_blank" %>
+<% end %>
+
+
+<!-- Notice -->
+<% if notice %>
+  <p id="notice">
+    <%= notice %>
+    <%= image_tag("delete.gif", :id => "close_notice") %>
+  </p>
+<% else %>
+  <% if !known_user? %>
+    <p id="notice">
+      Tip: to unlock protected informations, <%= link_to "ask me", @contact_url %> !
+      <%= image_tag("delete.gif", :id => "close_notice") %>
+    </p>	
+  <% end %>
+<% end %>

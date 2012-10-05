@@ -1,0 +1,31 @@
+<%
+  # LAYOUT: FRONTEND
+  #
+  # Use for every page on the frontend except for the social API
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Powered by NameUp</title>
+    <!-- Includes meta tag -->
+    <%= csrf_meta_tag %>
+    
+    <!-- Includes stylesheets -->
+    <!-- jQuery lightbox by ColorBox: http://colorpowered.com/colorbox/ -->
+    <%= stylesheet_link_tag "colorbox", :media => "all" %>
+    <!-- Our custom CSS -->
+    <%= render :partial => "stylesheets/user_css", :locals => {:user => @user} %>
+
+    <!-- Includes Javascript/jQuery -->
+		<%= javascript_include_tag "jquery.min", "rails", "frontend/jquery.colorbox-min", "frontend/API", "googleanalytics" %>
+</head>
+<body>
+  <div id="topbar">
+  	<%= render :template => 'frontend/head.html.erb' %>
+  </div>
+  <div id="central_panel">
+    <!-- Here goes the main content -->
+  	<%= yield %>
+  </div>
+</body>
+</html>

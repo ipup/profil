@@ -1,0 +1,67 @@
+<% 
+  # BACKEND VIEW: Resume
+  # 
+  # User can upload his CV and set its confidentiality level
+  # He also can see, create, edit and delete fields for an online CV
+%>
+
+<!-- Includes : stylesheets and javascript -->
+<%= javascript_include_tag "backend/resume" %>
+
+<!-- Content -->		
+<h2><%= t('.Resume')%></h2>
+
+<!-- Download Resume -->
+<div class="section">
+  <!-- Display the name of the actual CV and its confidentiality level -->
+  <% if @user.user_content.file_cv? %>
+    <h3 class="section_title"><%= t('.Current Resume :')%></h3>
+    <%= File.basename(@user.user_content.file_cv.to_s) %>
+    
+    <!-- Lock Function -->
+    <span id="file_cv">
+      <%= render :partial => 'user_contents/confidential', :locals => { :var => "file_cv" } %>
+    </span><br />
+  <% end %>
+  
+  <!-- Upload CV -->
+	<button id="NewCvFile_Trigger"><%= t('.New Resume')%></button>
+	
+	<!-- Hidden Field that slides down when triggered -->
+	<div id="NewCvFile" class="HiddenField">
+	  <h3 class="section_title"><%= t('.Download a new Resume :')%></h3>
+  	<%= form_for @user.user_content, :html => { :multipart => true } do |f| %>
+      <%= f.file_field :file_cv %><br/>
+      <p>
+        <label>
+          <%= f.check_box :remove_file_cv %>
+          <%= t('.Remove Current CV')%>
+        </label>
+      </p><br/>    
+      <%= f.submit t('.Save'), :class => "submit"%>
+    <% end %>
+  </div>	
+</div>
+<!-- End of Resume -->
+
+<!-- Display CV Fields -->
+<% if !@online_cv_fields.empty? then %>
+  <div id="accordion">	
+	  <%= render :partial => 'online_cv_fields/form', :collection => @online_cv_fields %>	
+  </div>
+<% end %>
+<!-- End of CV Fields !-->
+
+
+<!-- Trigger that reveal the hidden field !-->
+<button id="NewCvField_Trigger">
+	<%= t('.Create a new field')%>
+</button>
+<!-- Hidden Field that contain the new form for a CV Field -->
+<div id="NewCvField" class="HiddenField">
+	<% @online_cv_field = OnlineCvField.new %>
+	<%= render 'online_cv_fields/newfield' %>
+</div>
+<div class="clear"></div>
+
+

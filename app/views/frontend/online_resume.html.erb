@@ -1,0 +1,35 @@
+<%
+  # FRONTEND VIEW: Online Resume
+  #
+  # Displays the user's resume and his online CV
+%>
+<h1>Online Resume</h1>
+
+<div id="business_card">
+  <!-- Include the identity template -->
+  <div id="basic_infos">
+    <%= render :template => 'frontend/identity.html.erb' %>
+  </div>
+  
+	<div class="description_area">
+		<% if !known_user? %>
+			<!-- First we check that one public field exists. Otherwise we tell the user that he should get a code -->
+			<% checkfield = OnlineCvField.where(:user_id => @user.id,:confidential => false).first %>
+			<% if checkfield.nil? %>
+				This information is private ! To unlock it, just ask me by filling a 
+			  <%= link_to "contact form", @contact_url %>
+			<% end %>
+		<% end %>
+
+    <!-- Display the CV Fields -->
+		<% if !@user.online_cv_fields.empty? then %>
+			<% @cv_fields.each do |field| %>
+				<% if field.confidential == false || known_user? %> <!-- Public info or logged user -->
+					<!-- Displaying the field -->
+					<p class="field_title"><%= field.field_name%></p>
+					<%= (field.field_content).html_safe %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

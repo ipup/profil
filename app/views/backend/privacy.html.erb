@@ -1,0 +1,54 @@
+<% 
+  # BACKEND VIEW: Privacy
+  # 
+  # User can see, create or delete invites code on this page
+%>
+
+<!-- Content -->
+<h2><%= t('.Confidentiality') %></h2>
+
+<%= form_for(@code) do |f| %>
+	<!-- Create new security code -->
+  <div class="section">
+    <%= f.label t('.Code'), :class => "field_label" %>
+    <%= f.text_field :code %>
+  </div>
+  <div class="section">
+    <%= f.label t('.Commentary'), :class => "field_label" %>
+    <%= f.text_field :commentary %>
+  </div>
+  
+  <!-- Hidden Value !-->
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :use_counter, :value => 0 %>
+  
+  <%= f.submit t('.Create'), :class => "createCode" %>
+<% end %>
+
+<div class="clear"></div>
+
+<!-- Displaying existing Codes -->
+<% if !@guestcodes.empty? then %>
+  <div class="section">
+    <table class="linklist">
+      <tr>
+        <th><%= t('.Code') %></th>
+        <th><%= t('.Commentary') %></th>
+        <th><%= t('.Use count') %></th>
+        <th></th>
+      </tr>
+      
+      <% @guestcodes.each do |c| %>
+        <tr>
+          <td class="code"><%= sanitize(c.code) %></td>
+          <td class="comment"><%= sanitize(c.commentary) %></td>
+          <!-- Counter -->
+          <td><%= c.use_counter %></td>
+          <!-- Delete link -->
+          <td><%= link_to image_tag("delete.gif"), c, :confirm => 'Are you sure?', :method => :delete, :class => "delete_img" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+

@@ -1,0 +1,27 @@
+<h2>Subscription</h2>
+
+<div id="sign_up">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <div class="sign_up_column">
+    <p><%= f.text_field :name, :placeholder => "Name*",:class => "sign_up_field" %></p>  
+    <p><%= f.text_field :first_name, :placeholder => "First name*", :class => "sign_up_field" %></p>  
+    <p><%= f.text_field :pseudo, :placeholder => "Pseudo*", :class => "sign_up_field" %></p>
+    <legend>*You can fill only one of these fields</legend>
+  </div>
+  <div class="sign_up_column">
+    <p><%= f.email_field :email, :placeholder => "Email", :class => "sign_up_field" %></p>  
+    <p><%= f.password_field :password, :placeholder => "Password", :class => "sign_up_field" %></p>
+    <p><%= f.password_field :password_confirmation, :placeholder => "Password confirmation", :class => "sign_up_field" %></p>   
+  </div>
+  <div id="sign_up_domain">
+    <h4>Choose your url :</h4>
+    <span>
+      <label>http://nameup.heroku.com/</label>
+      <p><%= f.text_field :domain, :placeholder => "domain name", :id => "sign_up_invisible_field" %></p>
+    </span>
+  </div>
+  <%= f.submit "Sign up", :class => "button", :id => "sign_up_button" %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+</div>

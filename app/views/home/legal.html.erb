@@ -1,0 +1,18 @@
+<%
+  # Legal Notice:
+  # Provides (or should provide) the legal stuff
+  # If the user is logged in, he can delete his account and every info from our database.
+%>
+<p>
+  Legal Notice. Yeah, boring stuff ...
+</p>
+<% if user_signed_in? %>
+  <p>
+    Not Happy with the service... We don't believe you. However, you can still 
+    <em><%= link_to "cancel your account", registration_path(current_user), :confirm => "Are you sure?", :method => :delete %></em>
+  </p>
+<% else %>
+  <p>
+    Login if you want to cancel your account.
+  </p>
+<% end %>

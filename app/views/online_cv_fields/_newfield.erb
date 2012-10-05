@@ -1,0 +1,32 @@
+<div>
+	<%= form_for(@online_cv_field) do |f| %>
+		<p class="section_content">
+			<!-- Error Handling !-->
+
+			<% if @online_cv_field.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@online_cv_field.errors.count, "error") %> prohibited this online_cv_field from being saved:</h2>
+					
+					<ul>
+						<% @online_cv_field.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+			<!-- Fields -->
+			<%= f.label "N°" %> : 
+      <%= f.number_field :displayorder, :size => 2 %>
+			<%= f.label :field_name %> : 
+			<%= f.text_field :field_name %>
+			
+			<%= f.tinymce :field_content, :rows => 10 %>
+
+			<!-- Hidden Value -->
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+			<%= f.hidden_field :confidential, :value => true %>
+			<%= f.submit "Create", :class => "submit", :remote => true%>
+		</p>
+	<% end %>
+</div>

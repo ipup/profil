@@ -1,0 +1,2 @@
+$('#<%= form.id %>').empty();
+$('#<%= form.id %>').append("<%=escape_javascript render :partial => 'confidential', :locals => { :form => form } %>");

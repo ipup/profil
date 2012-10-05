@@ -1,0 +1,97 @@
+<%
+  # LAYOUT: HOMEPAGE
+  #
+  # Use for index and Legal & noJSwarning
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Powered by NameUp</title>
+  <!-- Includes meta tag -->
+  <%= csrf_meta_tag %>
+  
+  <!-- Includes stylesheets -->
+  <%= stylesheet_link_tag "home/homepage", "home/nivo-slider", :media => "all" %>
+  
+  <!-- Includes Javascript/jQuery -->
+  <%= javascript_include_tag "jquery.min", "jquery-ui.min", "jquery.livequery", "rails", "googleanalytics" %>  
+  <%= javascript_include_tag "home/homeJS", "home/jquery.nivo.slider.pack", "home/enablePlaceholder" %>
+  
+  <!-- For specific JS/CSS on some page -->
+  <%= yield :homepage %>
+</head>
+
+<body>
+  <div id="topbar">
+  	<h1>Nameup</h1>
+  	
+  	<% if !user_signed_in? %>
+    	<!-- User sign in form -->
+      <%= form_for("user", :url => user_session_path) do |f| %>  
+        <div class="align_right">
+          <%= f.text_field :email, :placeholder => "email", :class => "topbar_field" %>      
+          <%= f.password_field :password, :placeholder => "password", :class => "topbar_field" %>
+          <%= f.submit 'Sign in', :class => "button" %>
+        </div>
+        <div class="align_right clearR">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+          <%= link_to "Forgot your password?", new_password_path('user') %>
+        </div>
+      <% end %>
+    <% else %>
+      <!-- User links to backend/frontend -->
+      <div id="userconnected_link">
+        <%= link_to "FrontEnd", "#{current_user.domain}" %><br/>
+        <%= link_to "BackEnd", backend_path %><br/>
+        <%= link_to('Logout', destroy_user_session_path) %>
+      </div>
+    <% end %>
+    
+    <!-- Error and Message Handler -->
+    <% if notice || alert %>
+      <div id="notice">
+        <% if notice %>
+          <div id="picto">
+            <%= image_tag("pictoInfo.png") %>
+          </div>
+        <% else %>
+          <div id="picto">
+            <%= image_tag("pictoDanger.png")%>
+          </div>
+        <% end %>
+        <% flash.each do |name, msg| %>
+                   
+          <% if msg.class == Array %>
+            <% msg.each do |message| %>
+              <%= content_tag :p, message, :id => "flash_#{name}" %>
+            <% end %>
+          <% else %>          
+            <%= content_tag :p, msg, :id => "flash_#{name}" %>          
+          <% end %>
+        <% end %>
+        <%= image_tag "iconeQuit.png", :id => "close_notice" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div id="centralpanel">
+    <!-- Div used to slidedown the content when there's a notice -->
+    <% if notice || alert %>
+      <div id="uglydiv" style="margin-top:165px;"></div>
+    <% end %>
+    
+    <!-- Here goes the main content -->
+  	<%= yield %>
+  </div>
+  
+  <!-- Bottom Links -->
+  <div id="bottombar">	
+    <%= link_to "About", "http://ipup.pro", :class => "bottombar_links" %>   
+    <%= link_to (image_tag "iPuP.png", :class => "bottombar_image"), "http://ipup.pro" %>
+    <%= link_to "Contact","http://ipup.pro/contacts.php", :class => "bottombar_links" %>
+    <%= link_to "Legal", legal_path, :class => "bottombar_links" %>
+  </div>
+  
+</body>
+</html>

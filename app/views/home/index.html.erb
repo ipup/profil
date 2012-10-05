@@ -1,0 +1,87 @@
+<%
+  # HOME VIEW: Index
+  #
+  # Default page for our domain
+%>
+
+<!-- Includes : stylesheets and javascript -->
+<% content_for (:homepage) do %>
+  <%= javascript_include_tag "home/jquery.easing.1.2" %>
+<% end %>
+
+<!-- Slideshow: NivoSlider -->
+<!-- Find it here: http://nivo.dev7studios.com/ -->
+<div id="site_presentation">
+  <!-- Put the image here -->        
+  <div id="slider" class="nivoSlider">
+    <%= image_tag("slide/Slide1.jpg", :title => "#htmlcaption1")%>
+    <%= image_tag("slide/Slide2.jpg", :title => "#htmlcaption2")%>
+    <%= image_tag("slide/Slide3.jpg", :title => "#htmlcaption3")%> 
+    <%= image_tag("slide/Slide4.jpg", :title => "#htmlcaption4")%>  
+  </div>
+  <!-- Put the comments here -->
+  <div id="htmlcaption1" class="nivo-html-caption">
+    Create your resume
+  </div>
+  <div id="htmlcaption2" class="nivo-html-caption">
+    Promote yourself
+  </div> 
+  <div id="htmlcaption3" class="nivo-html-caption">
+    Increase your visibility on the web
+  </div> 
+  <div id="htmlcaption4" class="nivo-html-caption">
+    Get started and create your own page
+  </div>  
+</div>
+
+<!-- Registration form -->
+<div class="align_right">
+  <%= render :file => 'registrations/new' %>
+</div>
+
+
+<!-- Description of our service -->
+<ul id="description" class="clear">
+  <li>
+    <%= image_tag "iconeCv.png", :class => "icone_description" %>
+    <h3>ONLINE RESUME</h3>
+    <p>
+      Create your own resume and share it. And it's FREE !
+    </p>
+  </li>
+  <li>
+    <%= image_tag "iconeRadio.png", :class => "icone_description" %>
+    <h3>SOCIAL NETWORKS</h3>
+    <p>
+      Share your last tweets or facebook status.
+    </p>
+  </li>
+  <li>
+    <%= image_tag "iconeCarte.png", :class => "icone_description" %>
+    <h3>BUSINESS CARD</h3>
+    <p>
+      Share your experiences, projects and personalize your card.
+    </p>
+  </li>
+  <li>
+    <%= image_tag "iconePersonne.png", :class => "icone_description" %>
+    <h3>PERSONAL BRANDING</h3>
+    <p>
+      Promote yourself and let your employers find you.
+    </p>
+  </li>
+  <li>
+    <%= image_tag "iconeJumelles.png", :class => "icone_description" %>
+    <h3>E-REPUTATION</h3>
+    <p>
+      Manage your visibility on the web.
+    </p>
+  </li>
+  <li>
+    <%= image_tag "iconePrivacy.png", :class => "icone_description" %>
+    <h3>PRIVACY</h3>
+    <p>
+      Display only what you want. Choose who have access to your informations.
+    </p>
+</ul>
+

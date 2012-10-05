@@ -1,0 +1,82 @@
+<div id="social_networking">
+  <table id="social_head">
+    <tr id="social_title">
+      <td>
+        <%= image_tag "iconeFacebookT.png" %>
+      </td>
+      <td>
+        <!-- Display Pseudo - or Name FirstName if pseudo is blank -->
+        <% if !@user.pseudo.empty? %>
+          <label><%= @user.pseudo %></label>
+        <% else %>
+          <% if !@user.first_name.empty? %>
+            <label><%= @user.first_name %></label>
+          <% end %>
+          <% if !@user.name.empty? %>
+            <label><%= @user.name %></label>
+          <% end %>
+        <% end %>
+        <label>'s news feed</label>
+        <%= link_to '(see profile)', 'http://www.facebook.com/profile.php?id='+ @fb_user["id"] , :target => "_blank" %><br/>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <% if @fb_timeline %>
+    <table id="social_flux">
+      
+      <!-- Status -->
+      <% @fb_timeline.each do |f| %>
+        <% if f["type"] == "status" %>
+          <% if !f["message"].nil? %>
+          <tr>
+            <td class="social_box">
+            <%= f["message"] %>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
+      
+        <!-- Link -->
+        
+        <% if f["type"] == "link" %>
+          <tr>
+            <td class="social_box">
+          <% if !f["message"].nil? %>
+            <%= f["message"] %><br/>
+          <% end %>
+          <% if !f["picture"].nil? %>
+            <%= image_tag f["picture"] %><br/>
+          <% end %>
+          <% if !f["link"].nil? %>
+            <b>Link :</b> <%= link_to f["link"], f["link"], :target => "_blank" %>
+          <% end %>
+            </td>
+          </tr>
+        <% end %>  
+      
+        <!-- Video -->
+        
+        <% if f["type"] == "video" %>
+        <tr>
+          <td class="social_box">
+          <% if !f["message"].nil? %>
+            <%= f["message"] %><br/>
+          <% end %>
+          <% if !f["picture"].nil? %>
+            <%= image_tag f["picture"] %><br/>
+          <% end %>
+          <% if !f["link"].nil? %>
+            <b>Link :</b> <%= link_to f["link"], f["link"], :target => "_blank" %><br/>
+          <% end %>
+          <% if !f["source"].nil? %>
+            <b>Player :</b> <%= link_to f["source"], f["source"], :target => "_blank" %>
+          <% end %>
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </table>
+  <% end %>
+</div>

@@ -1,0 +1,595 @@
+<%
+  if !user.nil? # Problem with user ?
+    color_text_card   = user.customization.color_text_card   || "#ffffff"
+    color_bground     = user.customization.color_bground     || "#49aef5"
+    color_lines       = user.customization.color_lines       || "#3c759f"
+    color_text_lines  = user.customization.color_text_lines  || "#08304d"
+    color_card        = user.customization.color_card        || "#3c759f"
+    color_button      = user.customization.color_button      || "#08304d"
+    color_title       = user.customization.color_title       || "#08304d"
+    color_field_title = user.customization.color_field_title || "#08304d"
+
+    font_title        = user.customization.font_title        || "Century Gothic"
+    font_card         = user.customization.font_card         || "Century Gothic"
+    font_lines        = user.customization.font_lines        || "Century Gothic"
+    font_field_title  = user.customization.font_field_title  || "Century Gothic"
+
+  else
+    color_text_card   = "#ffffff"
+    color_bground     = "#49aef5"
+    color_lines       = "#3c759f"
+    color_text_lines  = "#08304d"
+    color_card        = "#3c759f"
+    color_button      = "#08304d"
+
+    font_title = "Century Gothic"
+    font_card  = "Century Gothic"
+    font_lines = "Century Gothic"
+  end
+%>
+<style type="text/css">
+  
+
+body{
+  height:100%;
+  width:100%;
+    color:<%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+    font-size:14px;
+    <% if user.customization.img_background? %>
+       background-image: url("<%= user.customization.img_background.to_s %>");
+       <% if user.customization.background_mosaic %> /* user choose to use mosaic option */
+         background-repeat: repeat;
+       <% else %>      
+         background-repeat:no-repeat;
+         background-color: <%= color_bground %>; /* Couleur personnalisable FOND */
+       <% end %>
+       background-position : center center;
+       background-attachment: fixed ;      
+    <% else %>
+       background: <%= color_bground %>; /* Couleur personnalisable FOND */
+    <% end %>
+    margin:0px;
+    padding:0px;
+
+}
+
+
+
+/*=============================*/
+/*======= Barre du haut =======*/
+/*=============================*/
+
+#topbar{
+  position:fixed;
+  min-width:1024px;
+    top:0px;
+    left:0px;
+    right:0px;
+    height:54px;
+    padding-left: 15px;
+  -moz-box-shadow:0px 0px 5px #000000;
+  -webkit-box-shadow:0px 0px 5px #000000;
+  box-shadow: 0px 0px 5px #000000;
+    /* Internet Explorer 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=<%= color_bground %>, endColorstr=<%= color_lines %>);
+  /* Internet Explorer 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=<%= color_bground %>, endColorstr=<%= color_lines %>)";
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(
+    top,
+    <%= color_bground %>, /* Couleur personnalisable BARRES */
+    <%= color_lines %> /* Couleur personnalisable FOND */
+  );
+  /* Safari, Google Chrome... */
+  background-image: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(<%= color_bground %>), /* Couleur personnalisable BARRES */
+    to(<%= color_lines %>) /* Couleur personnalisable FOND */
+  );
+}
+
+/* Liens vers les différentes "parties" de la carte de visite (Home, Online Resume, About, Contact) */
+.topbar_link{
+    float:left;
+    padding-top: 20px;
+    padding-left: 5px;
+    font-family:<%= font_lines %>, Helvetica, sans-serif; /* Police personnalisable POLICE_BARRES */
+    font-size:16px;
+    color:<%= color_text_lines %>; /* Couleur personnalisable TEXTE_BARRES */
+    text-decoration:none;
+}
+
+/* Icones correspondantes aux liens explicités précédemment */
+.icone_topleft{
+    height:32px;
+    width:32px;
+    border:none;
+  	/* Mozilla Firefox */
+    -moz-border-radius:5px;
+    background-image: -moz-linear-gradient(
+    top,
+    <%= color_bground %>, /* Couleur personnalisable FOND */
+    <%= color_lines %> /* Couleur personnalisable BARRES */
+    );
+    /* Safari, Google Chrome... */
+    -webkit-border-radius:5px;
+    background-image: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(<%= color_bground %>), /* Couleur personnalisable FOND */
+    to(<%= color_lines %>) /* Couleur personnalisable BARRES */
+    );
+    /* Autres navigateurs dont IE9 */
+    border-radius:5px;
+    /* Internet Explorer 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=<%= color_bground %>, endColorstr=<%= color_lines %>);
+    /* Internet Explorer 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=<%= color_bground %>, endColorstr=<%= color_lines %>)";
+    float:left;
+    margin-top: 13px;
+    margin-left: 20px;
+}
+    
+ /* Champ de texte où les codes de confidentialité peuvent être saisis */
+.topbar_textfield{
+    float:left;
+    margin-top: 18px;
+    margin-left: 5px;
+}
+/* Notices à l'utilisateur (log in successful, switch to ... mode, to unlock protected informations ask me) - Début */
+#notice{
+    width:23%;
+    float:left;
+    margin-top: 15px;
+    margin-left: 20px;
+    padding-left:5px;
+    line-height:26px;
+    background-color: <%= color_lines %>; /* Couleur personnalisable BARRES */
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border:1px solid <%= color_text_lines %>;
+    font-family:<%= font_lines %>, Helvetica, sans-serif; /* Police personnalisable POLICE_BARRES */
+    color: <%=color_text_lines %>; /* Couleur personnalisable BORD-BOUTON */
+    font-size:11px;
+}
+#notice a{
+  	color: <%=color_text_lines %>; /* Couleur personnalisable BORD-BOUTON */
+  	text-decoration:none;
+}
+#notice a:hover{
+  	text-decoration:underline;
+}
+#close_notice{
+  	float:right;
+  	margin-top: 5px;
+  	margin-right: 5px;
+}
+/* Notices à l'utilisateur (log in successful, switch to ... mode, to unlock protected informations ask me) - Fin */
+
+/* Bouton changement de mode*/
+.mode_button{
+  	float:left;
+  	cursor:pointer; 
+  	min-width:60px;
+  	margin-top:15px;
+  	margin-left:10px;
+  	font-family:<%= font_lines %>, Helvetica, sans-serif; /* Police personnalisable POLICE_BARRES */
+  	font-size:11px;
+  	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border: 1px solid <%=color_text_lines %>; /* Couleur personnalisable BORD-BOUTON */
+    background: <%= color_lines %>;
+    color: <%=color_text_lines %>; /* Couleur personnalisable BORD-BOUTON */
+    padding: 5px 10px;
+    font-weight:bold;
+    line-height:20px;
+}
+.mode_button:hover {
+    background:<%=color_text_lines %>; /* Couleur personnalisable BORD-BOUTON */
+    color:<%= color_lines %>;
+}
+
+.no_link {
+  text-decoration: none;
+}
+.no_link:hover {
+  text-decoration: underline;
+}
+/*Fin Bouton changement de mode*/
+
+
+
+/*===============================*/
+/*======= Panneau central =======*/
+/*===============================*/
+
+#central_panel{
+    position:static;
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:7%;
+    padding-bottom:7%;
+}
+
+/* Forme de la "carte de visite" de l'utilisateur */
+#business_card{
+    padding:10px;
+    background-color: <%= color_card %>; /* Couleur personnalisable CARTE */
+    -moz-box-shadow:0px 0px 5px #000000;
+    -webkit-box-shadow:0px 0px 5px #000000;
+    box-shadow: 0px 0px 5px #000000;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+
+/* Titre de la section de la page perso qui est visitée (Home, Online Resume, About & Contact) */
+h1{
+    font-family:<%= font_title %>, Helvetica, sans-serif; /* Police personnalisable POLICE_TITRES */
+    color: <%= color_title %>; /* Couleur personnalisable TITRES */
+    font-size:40px;
+    font-weight:bold;
+    margin-bottom: -8px;
+    margin-left: 5px;
+}
+
+/* Informations visibles sur l'en-tête de chaque page de la "carte de visite" - Début */
+#basic_infos{
+    padding-right:10px;
+    padding-bottom:5px;
+    margin-left: 30px;
+    margin-right: 30px;
+  	display:inline-block;
+  	display:table;
+  	width:93%;
+  	border-bottom:2px dotted <%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+}
+
+/* Tableau contenant l'image de profil et le nom - aligné sur la gauche */
+#Table_infos{
+  	display:table-cell;
+}
+
+/* Image de profil */
+#profile_picture{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom:10px;
+}
+
+/* Prénom, nom et/ou pseudo */
+#basic_infos .name{
+    padding-left:20px;
+    vertical-align:top;
+    font-size: 35px;
+    font-weight:bold
+    font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+
+/* Zone de téléchargement du CV et accès aux réseaux sociaux par l'intermédiaire des icones correspondantes - Début */
+#Cell_CV{
+  	display:table-cell;
+  	vertical-align:top;
+  	/*min-width:180px;*/
+}
+#Cell_CV img{
+    float:right;
+    border:none;
+}
+.icon_social_small{
+    height:32px;
+    width:32px;
+    background: <%= color_card %>
+    /* Internet Explorer */
+    border-radius:5px;
+    /* Mozilla Firefox */
+    -moz-border-radius:5px;
+    /* Safari, Google Chrome... */
+    -webkit-border-radius:5px;
+    float:right;
+    margin: 0px 5px 0px 0px;
+}
+.icone_CV{
+    height:64px;
+    width:64px;
+    background: <%= color_card %>
+    /* Mozilla Firefox */
+    -moz-border-radius:5px;
+    /* Safari, Google Chrome... */
+    -webkit-border-radius:5px;
+    /* Autres navigateurs dont IE9 */
+    border-radius:5px;
+    float:right;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+/* Zone de téléchargement du CV et accès aux réseaux sociaux par l'intermédiaire des icones correspondantes - Fin */
+
+/* Informations visibles sur l'en-tête de chaque page de la "carte de visite" - Fin */
+
+/* Titres des sections du "Online Resume" */
+.field_title {
+  	font-family:<%= font_field_title %>, Helvetica, sans-serif; /* Police personnalisable POLICE_TITRES_CV */
+  	color: <%= color_field_title %>; /* Couleur personnalisable TITRES_CV */
+  	font-weight:bold;
+  	font-size:40px;
+  	line-height:40px;
+  	margin-bottom:20px;
+  	margin-top:30px;
+  	margin-left: 5px;
+}
+
+/* Page de contact du possesseur de la "carte de visite" - Début */
+#business_card form{
+  	width:70%;
+  	float:right;
+}
+#contact{
+  	margin-top:5px;
+  	height:450px;
+  	padding-top:10px;
+}
+
+/* Téléphone, mail et/ou adresse - Début */
+#personal_infos{
+  	clear:both;
+  	width:30%;
+  	float:left;
+}
+#personal_infos label{
+  	font-weight:bold;
+  	color:<%= color_text_card %>;
+  	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+  	font-size: 20px;
+  	padding-left:30px;
+}
+#personal_infos p{
+  	color:<%= color_text_card %>;
+  	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+  	font-size: 14px;
+  	padding-left:30px;
+}
+/* Téléphone, mail et/ou adresse - Fin */
+
+/* Formulaire de contact - Début */
+#business_card .field_label{
+  	width: 20%;
+    float:left;
+    text-align:right;
+    margin-right:5px;
+    margin-left: 20px;
+    padding:5px;
+    margin-top:10px;
+    margin-bottom: 5px;
+    font-weight:bold;
+    line-height:20px;
+}
+#business_card .check_label{
+    padding:5px;
+    margin-left: 20px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-weight:bold;
+    line-height:20px;
+}
+.check-box{
+  	margin-left: 28%;
+}
+.text-field, .text-area{
+  	width: 65%;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border: 1px solid <%= color_button %>; /* Couleur personnalisable BORD-BOUTON */
+    background:#ffffff;
+    padding:5px;
+    margin-left: 20px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-weight:bold;
+    line-height:20px;
+    color: <%= color_button %>; /* Couleur personnalisable BORD-BOUTON */
+  	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+#send_button{
+	cursor:pointer; 
+	min-width:60px;
+	width:10%;
+	margin-right:45%;
+  	margin-left:45%;
+  	text-align: center;
+  	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border: 1px solid <%= color_button %>; /* Couleur personnalisable BORD-BOUTON */
+    background:#ffffff;
+    color: <%= color_button %>; /* Couleur personnalisable BORD-BOUTON */
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    font-weight:bold;
+    line-height:20px;
+}
+#send_button:hover {
+    background:<%= color_button %>; /* Couleur personnalisable BORD-BOUTON */
+    color:#ffffff;
+}
+/* Formulaire de contact - Fin */
+
+/* Page de contact du possesseur de la "carte de visite" - Fin */
+
+/* Zones de texte (sections du "Online Resume" et description "About" */
+.description_area{ 
+  	padding-right:10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    margin-right:30px;
+    font-weight:bold;
+    line-height:20px;
+}
+.description_area a{
+    color: <%= color_text_card %>;
+    text-decoration:none;
+    border-bottom: 1px dotted <%= color_text_card %>;
+}
+.description_area a:hover{
+    text-decoration: none;
+    border-bottom: 1px solid <%= color_text_card %>;
+}
+
+/* Pages réseaux sociaux - Début */
+#social_networking {
+  	width: 450px; /* Correspond à la largeur de la colorbox dans laquelle est affichée la page */
+}
+#social_networking legend{
+  	text-shadow: none;
+  	float:left;
+  	padding-right:10px;
+}
+#social_networking_link{
+  	clear:both;
+  	float:left;
+  	text-decoration: none;
+  	margin:10px;
+  	padding:3px;
+  	-moz-border-radius:3px;
+  	-webkit-border-radius:3px;
+  	border-radius:3px;
+  	color: <%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+  	background-color: <%= color_card %>; /* Couleur personnalisable CARTE */
+  	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+#social_networking_link:hover{
+  	text-decoration:underline;
+}
+#social_networking a{
+   	text-decoration: none;
+   	color: <%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+   	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+#social_networking a:hover{
+	text-decoration:underline;
+}
+/* En-tête de la page de réseau social - Début */
+#social_head{
+	border:none;
+	margin:10px;
+	width:420px;
+}
+#social_head td{
+	text-align: center;
+}
+/* Nom & Prénom ou Pseudo de l'utilisateur */
+#social_title label{
+	color: <%= color_card %>; /* Couleur personnalisable CARTE */
+	font-weight:bold;
+	font-size:20px;
+	line-height:32px;
+	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+/* Logo du réseau social visité */
+#social_title img{
+	background:<%= color_card %>; /* Couleur personnalisable CARTE */
+	/* Internet Explorer */
+	border-radius:5px;
+	/* Mozilla Firefox */
+	-moz-border-radius:5px;
+	/* Safari, Google Chrome... */
+	-webkit-border-radius:5px;
+}
+/* Lien vers le profil complet de l'utilisateur sur le réseau social correspondant */
+#social_title a{
+    color: <%= color_card %>; /* Couleur personnalisable CARTE */
+    text-decoration:none;
+    font-size:20px;
+    font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+#social_title a:hover{
+    text-decoration:underline;
+}
+/* En-tête de la page de réseau social - Fin */
+/* Conteneur de tout le flux social (contient toutes les "social_box" correspondantes définies ci-après) */
+#social_flux{
+	border:none;
+    margin:10px 70px;
+}
+/* Conteneur de chaque "part" d'information du réseau social (tweet, statut ou lien pour Facebook, différentes catégories pour LinkedIn) */
+.social_box{
+  	padding:5px;
+  	-moz-border-radius:3px;
+  	-webkit-border-radius:3px;
+  	border-radius:3px;
+  	border: 1px solid <%= color_card %>; /* Couleur personnalisable CARTE */
+  	-moz-box-shadow:inset 0px 0px 8px #000000;
+  	-webkit-box-shadow:inset 0px 0px 8px #000000;
+  	box-shadow:inset 0px 0px 8px #000000;
+  	color: <%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+  	background: <%= color_card %>; /* Couleur personnalisable CARTE */
+  	font-family:<%= font_card %>, Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+}
+/* Date de publication de l'information sociale */
+#social_date {
+  	font-size:10px;
+  	font-style:italic;
+  	margin:0px;
+}
+/* Pages réseaux sociaux - Fin */
+
+/* Liste des réseaux sociaux ET liens personnels de l'utilisateur (page Home) - Début */
+#personal_links{
+  	margin:10px 30px;
+  	padding-left: 0px;
+}
+#personal_links li{
+  	display: inline-block;
+  	list-style: none;
+  	height:32px;
+  	width: 28%;
+  	margin:2px 0px 2px 2%;
+  	padding: 5px 10px;
+  	border: 1px dotted <%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+  	-moz-border-radius:3px;
+  	-webkit-border-radius:3px;
+  	border-radius:3px;
+  	-moz-box-shadow:0px 0px 5px #000000;
+    -webkit-box-shadow:0px 0px 5px #000000;
+    box-shadow: 0px 0px 5px #000000;
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background: rgba(0, 0, 0, 0.5);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+#personal_links li a{
+  	color: <%= color_text_card %>; /* Couleur personnalisable TEXTE_CARTE */
+  	font-weight:bold;
+  	text-decoration:none;
+}
+/* Icone du lien */
+#personal_links li img{
+  	float:left;
+  	border:none;
+  	/* Mozilla Firefox */
+  	-moz-border-radius:5px;
+  	/* Safari, Google Chrome... */
+  	-webkit-border-radius:5px;
+  	/* Autres navigateurs dont IE9 */
+    border-radius:5px;
+}
+/* Titre du lien */
+.personal_link_title{
+  	float:left;
+  	line-height: 32px;
+  	margin-left:5px;
+}
+/* Liste des réseaux sociaux ET liens personnels de l'utilisateur (page Home) - Fin */
+</style>

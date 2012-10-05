@@ -1,0 +1,57 @@
+<table id="Table_infos">
+  <tr>
+  	<td>
+  	  <!-- User Pictures -->
+  		<% if @user.user_content.picture? %>
+    		<% if @user.user_content.picture_confidential == false || known_user? %>
+          <%= image_tag(@user.user_content.picture.to_s, :id => "profile_picture") %>
+        <% else %>
+          <%= image_tag('UnknownProfile.png', :id => "profile_picture")%>
+        <% end %>
+      <% else %>
+        <%= image_tag('UnknownProfile.png', :id => "profile_picture")%> 
+      <% end %>  
+  	</td>
+  	
+    <!-- Name - FirstName - Pseudo -->  
+    <td class="name">  
+      <% if !@user.name.empty? %>
+        <label for="last_name"><%= @user.name %></label>
+      <% end %>
+      <% if !@user.first_name.empty? %>
+        <label for="first_name"><%= @user.first_name %></label>
+      <% end %>
+      <% if ((!@user.first_name.empty?)||(!@user.name.empty?))&&(!@user.pseudo.empty?) %>
+      <label>|</label>
+      <% end %>
+      <% if !@user.pseudo.empty? %>
+        <label for="pseudo"><%= @user.pseudo %></label>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<div id="Cell_CV">
+  
+  <!-- CV Download: Check File existence, File confidentiality and print the correct icon(pdf/word) -->
+  <% if @user.user_content.file_cv? %> <!-- File existence -->
+  	<% if @user.user_content.file_cv_confidential == false || known_user? %> <!-- Public info or logged user -->
+  	  <% if File.extname(@user.user_content.file_cv.to_s)==  ".pdf" %>
+  	    <%= link_to (image_tag "iconePdfT.png", :class => "icone_CV"), @user.user_content.file_cv.to_s %>
+  	  <% elsif (File.extname(@user.user_content.file_cv.to_s) == ".doc" || File.extname(@user.user_content.file_cv.to_s)== ".docx") %>
+  	    <%= link_to (image_tag "iconeDocT.png", :class => "icone_CV"), @user.user_content.file_cv.to_s %>
+  	  <% end %>
+  	<% end %>
+  <% end %>
+  
+  <!-- Social API -->
+  <% if !@user.user_content.twitter_token.blank? %>
+    <%= link_to (image_tag "iconeTwitterT.png", :class => "colorbox_twitter icon_social_small", :href => @twitter_url), @twitter_url %>
+  <% end %>
+  <% if !@user.user_content.facebook_token.blank? %>
+    <%= link_to (image_tag "iconeFacebookT.png", :class => "colorbox_facebook icon_social_small", :href => @facebook_url), @facebook_url %>
+  <% end %>
+  <% if !@user.user_content.linkedin_token.blank? %>
+    <%= link_to (image_tag "iconeLinkedInT.png", :class => "colorbox_linkedin icon_social_small", :href => @linkedin_url), @linked_url %>
+  <% end %> 
+</div>

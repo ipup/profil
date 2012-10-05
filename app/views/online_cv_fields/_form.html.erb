@@ -1,0 +1,43 @@
+<h3 class="FieldTrigger">	
+	<span class="section_title"><%= form.field_name %></span>	
+	<!-- Lock function -->
+	<span id="<%= form.id %>">
+    <%= render :partial => 'online_cv_fields/confidential', :locals => { :form => form } %>
+  </span>
+</h3>
+  
+  
+<div class="HiddenField" >
+	<%= form_for(form) do |f| %>
+		<p class="section_content">
+			<!-- Error Handling !-->
+			<% if form.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(form.errors.count, "error") %> prohibited this field from being saved:</h2>
+					
+					<ul>
+						<% form.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+			<!-- Fields -->
+			<%= f.label "N°" %> : 
+      <%= f.number_field :displayorder, :size => 1 %>
+			<%= f.label :field_name %> : 
+			<%= f.text_field :field_name %>
+      
+			<!-- Delete button -->
+			<%= link_to image_tag("delete.gif"), form, :confirm => 'Are you sure?', :method => :delete, :class => "delete_img" %>
+			<%= f.tinymce :field_content %>
+
+			<!-- Hidden Value -->
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+			<%= f.submit "Save", :class => "submit" %>
+		</p>
+	<% end %>
+</div>
+
+

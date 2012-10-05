@@ -1,0 +1,15 @@
+<!-- Form for user's preferences: colors & polices -->
+<%= form_for(@custom) do |f| %>
+       
+    <%= f.hidden_field :color_text_card, :value => "#000000" %> 
+    <%= f.hidden_field :color_bground, :value => "#ffffff" %>
+    <%= f.hidden_field :color_lines, :value => "#cfcfcf" %>
+    <%= f.hidden_field :color_text_lines, :value => "#000000"%>
+    <%= f.hidden_field :color_card, :value => "#cfcfcf" %> 
+    <%= f.hidden_field :color_button, :value => "#000000" %>
+    <%= f.hidden_field :color_title, :value => "#000000"%>
+    
+    <%= image_submit_tag "theme_silver.png", :class => "theme_pict" %><br/>
+    Silver
+
+<% end %>

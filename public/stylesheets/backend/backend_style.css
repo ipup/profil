@@ -1,0 +1,618 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    color:#444444;
+    font-size:13px;
+    background: #f2f2f2;
+    font-family:"Century Gothic", Helvetica, sans-serif;
+}
+
+
+
+/*================================*/
+/*===== Mise en page globale =====*/
+/*================================*/
+
+#content{
+    margin:15px auto;
+    text-align:center;
+    width:720px;
+    position:relative;
+    height:100%;
+}
+#wrapper{
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    
+    background-color:#f9f9f9;
+    width:720px;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Liens "Your Page" & "Logout" - Début */
+#logout {
+    float:right;
+    display:inline-block;
+    outline:none;
+    text-decoration:none;
+}
+#logout a{
+  color: #444444;
+  text-decoration: none;
+  cursor: pointer;
+  position:static;
+  margin-left:80px;
+}
+#logout a:hover{
+  text-decoration: underline;
+}
+/* Liens "Your Page" & "Logout" - Fin */
+
+/* Mentions légales - Début */
+#legal {
+  font-size:10px;
+    display:inline-block;
+    outline:none;
+    text-decoration:none;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 15px;
+  margin-bottom:2px;
+}
+#legal a{
+  color: #444444;
+  text-decoration: none;
+  cursor: pointer;
+  position:static;
+}
+#legal a:hover{
+  text-decoration: underline;
+}
+/* Mentions légales - Fin */
+
+/* Titre */
+h1 {
+    display:inline-block;
+    margin-bottom: 10px;
+}
+
+/* Barre de navigation (en bas) par onglets - Début */
+#navigation{
+    height:45px;
+    background-color:#e9e9e9;
+    border-top:1px solid #ccc;
+    -moz-border-radius:0px 0px 10px 10px;
+    -webkit-border-radius:0px 0px 10px 10px;
+    border-radius:0px 0px 10px 10px;
+}
+#navigation ul{
+    list-style:none;
+    float:left;
+    margin-left:22px;
+}
+#navigation ul li{
+    float:left;
+    border-right:1px solid #ccc;
+    border-left:1px solid #ccc;
+    position:relative;
+    margin:0px 2px;
+    display:block;
+    height:45px;
+    color:#777;
+    outline:none;
+    font-weight:bold;
+    text-decoration:none;
+    line-height:45px;
+    padding:0px 20px;
+    border-right:1px solid #fff;
+    border-left:1px solid #fff;
+    background:#f0f0f0;
+    background:
+        -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.09, rgb(240,240,240)),
+        color-stop(0.55, rgb(227,227,227)),
+        color-stop(0.78, rgb(240,240,240)),
+        );
+    background:
+        -moz-linear-gradient(
+        center bottom,
+        rgb(240,240,240) 9%,
+        rgb(227,227,227) 55%,
+        rgb(240,240,240) 78%,
+        )
+}
+#navigation ul li:hover {
+    cursor:pointer;
+    background:#d8d8d8;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+}
+/* Barre de navigation (en bas) par onglets - Fin */
+
+
+
+/*===========================*/
+/*========= Content =========*/
+/*===========================*/
+
+/* Titre de la section sélectionnée (Account, Resume, Social Networks, About, Theme & Confidentiality) */
+.step h2{
+    text-align:left;
+    background-color:#f0f0f0;
+    color:#666;
+    font-size:24px;
+    text-shadow:1px 1px 1px #fff;
+    font-weight:bold;
+    float:left;
+    width:710px;
+    padding:5px 0px 5px 10px;
+    margin:10px 0px;
+    border-bottom:1px solid #fff;
+    border-top:1px solid #d9d9d9;
+}
+
+/* Présentation des boîtes contenant un éditeur de texte "Tinymce Hammer" */
+.section_content{
+    clear:both;
+    display:inline-block;
+    margin:5px 0px;
+    background-color:#f4f4f4;
+    border:1px solid #fff;
+    width:510px;
+    padding:10px 10px 10px 50px;
+    margin-left:70px;
+    margin-right:70px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    position:relative;
+}
+
+/* Boîtes délimitant les différentes sections (exceptées celles à droite de l'image de profil dans la page "Account")
+(pour FieldTrigger : boîte contenant le titre de la section qui apparaîtra au clic avec l'effet "accordion") - Début */
+.FieldTrigger,
+.section{
+    clear:both;
+    display:inline-block;
+    margin:5px 0px;
+    background-color:#f4f4f4;
+    border:1px solid #fff;
+    width:550px;
+    padding:10px;
+    margin-left:70px;
+    margin-right:70px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    position:relative;
+}
+.FieldTrigger:hover {
+    cursor:pointer;
+}
+/* Titre correspondant à la "section"explicitée précédemment */
+.section_title{
+    float:left;
+    text-align:left;
+    vertical-align: middle;
+    margin-right:15px;
+    margin-left:30px;
+    line-height:26px;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+    font-weight:bold;
+}
+/* Boîtes délimitant les différentes sections (exceptées celles à droite de l'image de profil dans la page "Account") - Fin */
+
+/* Onglet "Social Networks" - Début */
+/* Conteneur correspondant à un réseau social (contient l'icône, le login/logout) */
+.social_login{
+  	width: 550px;
+  	float:left;
+}
+/* Icones lorsque le compte n'est pas activé */
+.social_icon{
+  	clear:both;
+  	float:left;
+  	height:32px;
+    width:32px;
+    margin-left:40px;
+    margin-top:15px;
+  	/* Mozilla Firefox */
+  	-moz-border-radius:5px;
+  	/* Safari, Google Chrome... */
+  	-webkit-border-radius:5px;
+  	/* Autres navigateurs dont IE9 */
+    border-radius:5px;
+  	border:none;
+}
+/* Icones lorsque le compte est activé */
+.social_icon_active{
+  background:#4797ED;
+}
+/* Liens vers les réseaux sociaux & les sites perso */
+.social_text{
+    margin-left:10px;
+    margin-top:20px;
+    line-height:26px;
+    color:#666;
+    float:left;
+}
+.social_link{
+    text-decoration: none;
+}
+.social_link:hover{
+  text-decoration: underline;
+}
+/* Boutons "Delete ... access" */
+.social_log{
+  	float:left;
+    border:none;
+    outline:none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor:pointer;
+    margin-top:16px;
+    margin-left:20px;
+    padding: 3px 8px;
+    text-shadow: 0 1px 1px #777;
+    font-weight:bold;
+    font-family:"Century Gothic", Helvetica, sans-serif;
+    font-size:18px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background:#4797ED;
+}
+.social_log:hover {
+    background:#d8d8d8;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+}
+/* Onglet "Social Networks" - Fin */
+
+/* Boutons d'enregistrement et de création ("Save", "Update", ...) - Début */
+.step button,
+.createCode {
+    border:none;
+    outline:none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor:pointer;
+    margin-left:15px;
+    margin-right:15px;
+    clear:both;
+    padding: 5px 10px;
+    text-shadow: 0 1px 1px #777;
+    font-weight:bold;
+    font-family:"Century Gothic", Helvetica, sans-serif;
+    font-size:18px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background:#3875a7;
+}
+.submit {
+    float:right;
+    border:none;
+    outline:none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor:pointer;
+    margin:8px 0px 10px 70px;
+    clear:both;
+    padding: 5px 10px;
+    text-shadow: 0 1px 1px #777;
+    font-weight:bold;
+    font-family:"Century Gothic", Helvetica, sans-serif;
+    font-size:18px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background:#3875a7;
+}
+.submit:hover,
+.step button:hover,
+.createCode:hover {
+    background:#d8d8d8;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+}
+/* Boutons d'enregistrement et de création ("Save", "Update", ...) - Fin */
+
+/* Thèmes pré-enregistrés - Début */
+#themes{
+	width:inherit;
+	margin-top:20px;
+}
+#themes li{
+	width:33%;
+	float:left;
+	list-style-type:none;
+}
+.theme_pict{
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin:5px auto;
+}
+/* Thèmes pré-enregistrés - Fin */
+
+/* Champs de personnalisation (couleurs & polices) - Début */
+#container_color,
+#perso_fonts{
+	width:90%;
+	margin-top:20px;
+	padding:0px 20px;
+	display: inline-block;
+}
+#text_color,
+#text_font{
+	padding-top:20px;
+	width:50%;
+	float:left;
+	border-top: 1px solid #666;
+}
+#container_color label,
+#text_color label,
+#text_font label{
+	float:left;
+	width:132px;
+	text-align: left;
+	color:#666;
+}
+#text_color input,
+#container_color input,
+#container_color a,
+#text_color a{
+	float:left;
+}
+#text_font input{
+	float:left;
+	width:92px;
+	margin-bottom: 4px;
+}
+#container_color li{
+	list-style-type: none;
+	float:left;
+	width:50%;
+}
+#text_color li,
+#text_font li{
+	list-style-type: none;
+	float:left;
+}
+/* Champs de personnalisation (couleurs & polices) - Fin */
+
+#NewCvField_Trigger,
+.createCode {
+  	margin: 5px 0px;
+}
+
+/* Image du profil - Début */
+#picContainer{
+    clear:both;
+    float:left;
+    background-color:#f4f4f4;
+    border:1px solid #fff;
+    width:230px;
+    height: 285px;
+    padding:10px;
+    margin-left:10px;
+    margin-bottom: 15px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+}
+#user_picture {
+    border:1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    position:relative;
+}
+#picture_file{
+	position:relative;
+	top:3px;
+	width:230px;
+}
+/* Image du profil - Fin */
+
+/* Champs principaux de la page "Account" (url, nom, prénom, pseudo & mail) - Début */
+.basics_infos{
+    clear:both;
+    width:400px;
+    display:inline-block;
+    margin:5px 0px;
+    background-color:#f4f4f4;
+    border:1px solid #fff;
+    padding:10px;
+    margin-left:10px;
+    margin-right:10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+}
+.basics_infos a{
+	text-decoration:none;
+	color:#666;
+}
+.basics_infos a:hover{
+	text-decoration:underline;
+}
+/* Champs principaux de la page "Account" (url, nom, prénom, pseudo & mail) - Fin */
+
+/* Labels de champs remplis ou à remplir, alignés vers ceux-ci (contrairement aux "section_title") */
+.field_label{
+    width:100px;
+    float:left;
+    text-align:right;
+    margin-right:15px;
+    line-height:26px;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+    font-weight:bold;
+}
+
+/*  Fond d'écran perso - Début */
+.background_setting{
+	width:inherit;
+}
+#background_text{
+	text-align:right;
+	padding-right:35px;
+}
+#background_radio{
+	text-align:left;
+	padding-left:30px;
+}
+/*  Fond d'écran perso - Fin */
+
+/* Gestion des cadenas de protection des différents champs - Début */
+/* Positionnement des cadenas */
+.section_content form .padlock,
+.FieldTrigger form {
+    float: right;
+}
+.section_content form .padlock:hover,
+.FieldTrigger form:hover {
+    cursor:pointer;
+}
+
+/* Cadenas de l'image de profil */
+.padlockPict{
+	/* Tout navigateur */
+    margin-top:8px;
+    /* Internet Explorer - cf. "http://forum.alsacreations.com/topic-4-55185-1-Un-hack-css-ie9--.html" pour les exemples de hacks css */
+    /*margin-top:25px\9;
+    margin-left:100px\9;*/
+}
+
+#NewCvFile {
+    margin-top:15px;
+}
+/* Cadenas CV */
+#file_cv{
+	float:right;
+}
+
+.HiddenField {
+    display: none;
+}
+
+/* Croix rouge de suppression (pour champs du CV, liens perso & codes confidentiels) - Début */
+.delete_img {
+    float:right;
+}
+.delete_img img{
+	border:none;
+}
+/* Croix rouge de suppression (pour champs du CV, liens perso & codes confidentiels) - Fin */
+
+.section_content input {
+    margin-bottom: 5px;
+}
+
+.center {
+    padding-left: 50px;
+}
+.align_left {
+    float:left;
+}
+.clear {
+    clear: both;
+}
+
+div.new_label {
+    float:left;
+    width: 60px;
+    padding-left: 25px;
+    padding-right: 20px;
+    text-align: right;
+}
+div.new_field {
+    float:left;
+    width: 400px;
+    padding-left: 5px;
+    padding-right: 20px;
+    text-align: right;
+}
+/* Tableau des codes de confidentialité */
+table{
+    border-collapse: collapse;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+td{
+    line-height:32px;
+    color:#666;
+}
+/* Icone des liens perso */
+td.icon {
+    width: 20px;
+    padding-left: 5px;
+    padding-right: 20px;
+    text-align: center;
+}
+td.icon img{
+    /* Mozilla Firefox */
+    -moz-border-radius:5px;
+    /* Safari, Google Chrome... */
+    -webkit-border-radius:5px;
+    /* Autres navigateurs dont IE9 */
+    border-radius:5px;
+}
+
+/* Liens perso */
+td.url {
+    width: 400px;
+    padding-right: 10px;
+    text-align: left;
+}
+td.url a{
+	text-decoration:none;
+	color:#666;
+}
+td.url a:hover{
+	text-decoration:underline;
+}
+/* Code de confidentialité */
+td.code {
+    width: 100px;
+    padding-left: 5px;
+    padding-right: 20px;
+    text-align: left;
+}
+/* Commentaire (facultatif) sur le code de confidentialité */
+td.comment {
+    width: 320px;
+    padding-right: 10px;
+    text-align: left;
+}

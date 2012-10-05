@@ -1,0 +1,6 @@
+<%
+  # JS called when a locked is clicked
+  # Used with confirmations_controller
+%>
+$('#<%= link.id %>').empty();
+$('#<%= link.id %>').append("<%=escape_javascript render :partial => 'confidential', :locals => { :link => link } %>");

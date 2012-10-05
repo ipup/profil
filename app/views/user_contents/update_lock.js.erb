@@ -1,0 +1,2 @@
+$('#<%= var_changed %>').empty();
+$('#<%= var_changed %>').append("<%=escape_javascript render :partial => 'confidential', :locals => { :var => var_changed } %>");

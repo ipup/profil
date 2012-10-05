@@ -1,0 +1,109 @@
+<% 
+  # BACKEND VIEW: Social
+  # 
+  # User can link his account with Twitter/FB/LLinkedIN API
+  # He also can see, create and delete links and upload corresponding icons
+%>
+
+<!-- Content -->    
+<h2><%= t('.Social')%></h2>
+
+<!-- Social Networks -->
+<div class="section">
+  <h3 class="section_title">
+    <%= t('.Social Networks')%>
+  </h3><br/>
+  
+	<!-- Twitter -->
+  <% if @user.user_content.twitter_token.blank? %>
+    <div class="social_login">
+      <%= link_to (image_tag "iconeTwitterT.png", :class => "social_icon"), @login_twitter_url %>
+      <%= link_to t('.Login Twitter'), @login_twitter_url, :class => "social_text social_link" %><br />
+    </div>
+  <% else %>
+    <%= form_for(@user.user_content) do |f| %>
+     <%= link_to (image_tag "iconeTwitterT.png", :class => "social_icon social_icon_active"), @login_twitter_url %>
+     <%= f.hidden_field :twitter_token, :value => nil %>
+     <%= f.hidden_field :twitter_secret, :value => nil %>
+     <%= f.submit t('.Delete Twitter access'), :confirm => 'Are you sure?', :class => "social_log" %>
+    <% end %>
+  <% end %>  
+
+	<!-- Facebook -->    
+  <% if @user.user_content.facebook_token.blank? %>
+    <div class="social_login">
+      <%= link_to (image_tag "iconeFacebookT.png", :class => "social_icon"), @login_facebook_url %>
+      <%= link_to t('.Login Facebook'), @login_facebook_url, :class => "social_text social_link" %><br />
+    </div>
+  <% else %>
+    <%= form_for(@user.user_content) do |f| %>
+     <%= link_to (image_tag "iconeFacebookT.png", :class => "social_icon social_icon_active"), @login_facebook_url %>
+     <%= f.hidden_field :facebook_token, :value => nil %>
+     <%= f.submit t('.Delete Facebook access'), :confirm => 'Are you sure?', :class => "social_log" %>
+    <% end %>
+  <% end %>
+
+	<!-- LinkedIn -->  
+  <% if @user.user_content.linkedin_token.blank? %>
+    <div class="social_login">
+      <%= link_to (image_tag "iconeLinkedInT.png", :class => "social_icon"), @login_linkedin_url %>
+      <%= link_to t('.Login LinkedIn'), @login_linkedin_url, :class => "social_text social_link" %>
+    </div>
+  <% else %>
+    <%= form_for(@user.user_content) do |f| %>
+     <%= link_to (image_tag "iconeLinkedInT.png", :class => "social_icon social_icon_active"), @login_linkedin_url %>
+     <%= f.hidden_field :linkedin_token, :value => nil %>
+     <%= f.hidden_field :linkedin_secret, :value => nil %>
+     <%= f.submit t('.Delete LinkedIn access'), :confirm => 'Are you sure?', :class => "social_log" %>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- Display External Links -->
+<% if !@links.empty? then %>
+  <div class="section">
+    <h3 class="section_title">
+      <%= t('.Your Links') %>
+    </h3>
+    <div class="clear"></div>
+
+    <table class="linklist">
+      <% @links.each do |link| %>
+        <tr>
+          <td class="icon">
+            <% if link.icon? %>
+              <%= image_tag(link.icon.to_s, :width => "32", :height => "32") %>
+            <% else %>
+              <%= image_tag("extlink.png", :width => "32", :height => "32") %>
+            <% end %>
+          </td>
+          <td class="url">
+            <%= link_to link.title, link.url, :target => "_blank" %>
+          </td>
+          <td class="del">
+            <%= link_to image_tag("delete.gif"), link, :confirm => 'Are you sure?', :method => :delete, :class => "delete_img" %>
+          </td>
+          <td class="lock">
+            <!-- Lock function -->
+            <span id="<%= link.id %>">
+              <%= render :partial => 'external_links/confidential', :locals => { :link => link } %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+<!-- End of External Links !-->
+
+<!-- New External Link -->
+<div class="section">
+  <h3 class="section_title">
+    <%= t('.Create a new link') %>
+  </h3>
+  <div class="clear"></div>
+  <div class="align_left">
+    <% @external_link = ExternalLink.new %>
+    <%= render 'external_links/form' %>
+  </div>
+</div>

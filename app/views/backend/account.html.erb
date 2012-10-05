@@ -1,0 +1,122 @@
+<% 
+  # BACKEND VIEW: Account
+  # 
+  # The default page for backend
+  # User can upload a profile picture. He can also modify his personnal info (and see the one that can't be modified)
+  # He can also add another information such as Phone, Address ...
+%>
+
+<!-- Includes : stylesheets and javascript -->
+<%= javascript_include_tag "backend/account" %>
+
+<!-- Content -->
+<h2><%= t('.Account')%></h2>
+
+<!-- User picture -->
+<div id="picContainer">
+  <!-- Picture Display -->
+  <%= form_for @user.user_content, :html => { :multipart => true } do |ddf| %>
+    <!-- If a picture has already been uploaded, we display it -->
+    <% if @user.user_content.picture? %>
+      <%= image_tag @user.user_content.picture.to_s, :id => "user_picture" %><br />
+      <%= ddf.hidden_field :picture_cache %>
+    <!-- Otherwise, we provide a picture by default -->
+    <% else %>
+      <%= image_tag('UnknownProfile.png', :id => "user_picture")%>
+    <% end %>
+    
+    <!-- Picture Uploader -->
+    <div id="picture_file">
+      <p>
+        <%= ddf.file_field :picture %>
+      </p>    
+  
+      <p>
+        <%= ddf.submit t('.Save'), :class => "submit align_left" %>     
+      </p>
+    <% end %>
+    
+    <!-- Lock function !-->
+    <span id="picture"> <!-- Enable to modify its content via ajax -->
+      <%= render :partial => 'user_contents/confidential', :locals => { :var => "picture" } %>
+    </span>
+  </div>
+</div>
+
+<!-- User basic information !-->
+<p class="basics_infos">
+	<label for="domain" class="field_label"><%= t('.Url') %></label>
+	<a href="http://nameup.heroku.com/<%= @user.domain %>">http://nameup.heroku.com/<%= @user.domain %></a>
+</p>
+
+<!-- Form for name/firstname/pseudo and email (Devise controller) !-->
+<%= form_for(@user, :url => registration_path(@user), :html => { :method => :put }) do |f| %>
+	<!-- FirstName !-->
+	<p class="basics_infos">
+		<label for="first_name" class="field_label"><%= t('.First Name') %></label>
+		<%= f.text_field :first_name, :id => "firstname" %>
+	</p>
+	
+
+	<!-- Name !-->
+	<p class="basics_infos">
+		<label for="last_name" class="field_label"><%= t('.Last Name') %></label>
+		<%= f.text_field :name, :id => "name" %>
+	</p>
+	
+
+	<!-- Pseudo !-->
+	<p class="basics_infos">
+		<label for="pseudo" class="field_label"><%= t('.Pseudo') %></label>
+		<%= f.text_field :pseudo, :id => "name" %>
+	</p>
+	
+
+	<!-- Email !-->
+	<p class="basics_infos">
+		<label for="email" class="field_label"><%= t('.Email') %></label>
+		<%= f.email_field :email, :id => "email", :disabled => "disabled" %>
+		
+		<!-- Lock function specific for email !-->
+    <br/>
+    <em><%= t('.Protected') %> ?</em>
+    <%= f.check_box :email_confidential %>
+	</p>
+
+  <!-- Submit button -->
+  <%= f.submit t('.Update'), :class => "createCode" %>
+<% end %>
+
+<!-- Display others informations -->
+<!-- SlideDown on click -->
+<div id="accordion">
+	<!-- Field title -->
+	<h3 class="FieldTrigger">
+		<span class="section_title"><%= t('.Complementary Informations') %></span>
+		<!-- Lock function !-->
+		<span id="info"> <!-- Enable to modify its content via ajax -->
+      <%= render :partial => 'user_contents/confidential', :locals => { :var => "info" } %>
+    </span>
+	</h3>
+
+  <!-- Content that is displayed after the click -->
+	<div class="HiddenField">
+		<!-- Form for other user's informations (user content controller) -->
+		<%= form_for(@content) do |f| %>
+			<!-- Phone -->
+			<div class="section">
+				<label for="phone" class="field_label"><%= t('.Phone') %></label>
+				<%= f.text_field :phone %>
+			</div>
+
+			<!-- Address -->
+			<div class="section">
+				<label for="address" class="field_label"><%= t('.Address') %></label>
+				<%= f.text_field :address %>
+			</div>
+
+			<%= f.submit t('.Save'), :class => "createCode"%>
+		<% end %>
+	</div>
+</div>
+

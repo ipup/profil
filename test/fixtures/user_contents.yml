@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  picture: MyString
+  picture_confidential: 1
+  phone: MyString
+  phone_confidential: 1
+  address: MyText
+  address_confidential: 1
+  tiny_description: MyText
+  description: MyText
+  description_confidential: 1
+  file_cv: MyString
+  file_cv_confidential: 1
+
+two:
+  user_id: 1
+  picture: MyString
+  picture_confidential: 1
+  phone: MyString
+  phone_confidential: 1
+  address: MyText
+  address_confidential: 1
+  tiny_description: MyText
+  description: MyText
+  description_confidential: 1
+  file_cv: MyString
+  file_cv_confidential: 1

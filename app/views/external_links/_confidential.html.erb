@@ -1,0 +1,10 @@
+<%
+  # This partial is rendered when the user clicked a locker
+  # The locker (which contain a form) is updated via ajax
+  #
+  # Here is the new form
+%>
+<%= form_for(link, :remote => true) do |f| %>
+  <%= f.hidden_field :confidential, :value => opposite_value(link.confidential) %>
+  <%= image_tag(lock_img(link.confidential), :class => "padlock") %>    
+<% end %>

@@ -1,0 +1,74 @@
+<%
+  # FRONTEND VIEW: Contact
+  #
+  # Displays the contact form.
+%>
+<h1>Contact</h1>
+<div id="business_card">
+  <!-- Include the identity template -->
+  <div id="basic_infos">
+    <%= render :template => 'frontend/identity.html.erb' %>
+  </div>
+  
+  <!-- Personnal infos Display -->
+  <div id="contact">
+    <div id="personal_infos">
+      
+      <!-- Email Display -->
+      <% if @user.email_confidential == false || known_user? %>  
+        <label>Mail: </label>
+        <br />
+        <p>
+          <%= sanitize(@user.email) %>
+        </p>
+        <br />
+      <% end %>  
+  
+      <!-- Complementary Infos Display -->
+      <% if @user.user_content.info_confidential == false || known_user? %>
+        <!-- Address -->
+        <% if !@user.user_content.address.blank? %>
+          <label>Address: </label>
+          <br />
+          <p>
+            <%= sanitize(@user.user_content.address) %>
+          </p>
+          <br />
+        <% end %>
+        
+        <!-- Phone -->
+        <% if !@user.user_content.phone.blank? %>
+          <label>Phone: </label>
+          <br />
+          <p>
+            <%= sanitize(@user.user_content.phone) %>
+          </p>
+          <br />
+        <% end %>
+      <% end %>  
+    </div> 
+
+
+    <!-- Contact Form -->
+    <% form_for @support, :url => {:controller=>"supports", :action=>"create"}, :html => { :method => :post, :honeypot => true } do |f| %>
+      <label class="field_label">Name :</label>
+      <%= f.text_field :sender_name, :class => "text-field" %><br />
+      
+      <label class="field_label">Mail :</label>
+      <%= f.text_field :email, :class => "text-field" %><br />
+      
+      <!-- Checkbox: if the visitor want to ask the user an invite code -->
+      <%= f.check_box :support_code, :valeur_on=>1, :valeur_off=>0, :class => "check-box" %>
+      <label class="check_label">I would like to receive an invite code</label><br />
+      
+      <label class="field_label">Message :</label>
+      <%= f.text_area :content, :rows => 10, :class => "text-area" %><br />
+      
+      <%= f.hidden_field :id_to, :value => @user.id %>
+      
+      <p>
+        <%= f.submit "Send", :id => "send_button" %>
+      </p>
+    <% end %>
+  </div>
+</div>

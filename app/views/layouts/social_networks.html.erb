@@ -1,0 +1,23 @@
+<%
+  # LAYOUT: SOCIAL NETWORKS
+  #
+  # Use for our API (displayed in a ColorBox)
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Powered by NameUp</title>
+    <!-- Includes meta tag -->
+    <%= csrf_meta_tag %>
+    
+    <!-- Our custom CSS -->
+    <%= render :partial => "stylesheets/user_css", :locals => {:user => @user} %>
+
+    <!-- Includes Javascript/jQuery -->
+    <%= javascript_include_tag "jquery.min", "rails", "googleanalytics" %>
+</head>
+<body>
+  <!-- Here goes the main content -->
+	<%= yield %>
+</body>
+</html>

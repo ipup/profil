@@ -1,0 +1,13 @@
+# config/linkedin.yml
+development:
+ api_key: ed8h2klUd9QTYzx3IA59A9HODO1oqaDdrPjedHyYVdZc_pOxUKEjoAROgPEXkBa_
+ secret_key: T29gFcK8CWiwjZFOk1dAGeHdyRy2VMK45H6VFYXGvPho2arSBmyGgydDSHu4pqPK
+ callback_url: http://nameup.heroku.com/backend/social
+test:
+ api_key: ed8h2klUd9QTYzx3IA59A9HODO1oqaDdrPjedHyYVdZc_pOxUKEjoAROgPEXkBa_
+ secret_key: T29gFcK8CWiwjZFOk1dAGeHdyRy2VMK45H6VFYXGvPho2arSBmyGgydDSHu4pqPK
+ callback_url: http://nameup.heroku.com/backend/social
+production:
+ api_key: ed8h2klUd9QTYzx3IA59A9HODO1oqaDdrPjedHyYVdZc_pOxUKEjoAROgPEXkBa_
+ secret_key: T29gFcK8CWiwjZFOk1dAGeHdyRy2VMK45H6VFYXGvPho2arSBmyGgydDSHu4pqPK
+ callback_url: http://nameup.heroku.com/backend/social

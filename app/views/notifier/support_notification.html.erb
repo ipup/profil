@@ -1,0 +1,10 @@
+Hello,<br/>
+
+<p><%= sanitize(@sender.sender_name) %> has filled the contact form on your Nameup's account.</p>
+<% if @sender.support_code == "1" %>
+  <p><strong>Please note that he/she asked for a code so he/she can see your full profile.</strong></p>
+<% end %>
+
+<p>New message from <%= sanitize(@sender.email) %> :</p><br/>
+
+<p><%= sanitize(@sender.content) %></p>

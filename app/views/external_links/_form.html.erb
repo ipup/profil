@@ -1,0 +1,45 @@
+<%= form_for @external_link, :html => { :multipart => true } do |f| %>
+  <% if @external_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@external_link.errors.count, "error") %> prohibited this external_link from being saved:</h2>
+
+      <ul>
+      <% @external_link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <!-- Fields -->
+  <div class="new_label">
+    <%= f.label :icon %> :
+  </div>
+  <div class="new_field">
+     <%= f.file_field :icon %>
+  </div>
+  <div class="clear"></div>
+  
+	<div class="new_label">
+    <%= f.label :title %> : 
+  </div>
+  <div class="new_field">
+    <%= f.text_field :title, :size => "50" %><br/>
+  </div>
+	<div class="clear"></div>
+
+  <div class="new_label">
+    <%= f.label :url %> : 
+  </div>
+  <div class="new_field">
+    <%= f.url_field :url, :size => "50", :value => "http://" %><br/>
+  </div>
+  
+  <!-- Hidden Value -->
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :confidential, :value => 1 %>
+  <div class="clear"></div>
+  
+  <%= f.submit "Create", :class => "submit" %>
+<% end %>

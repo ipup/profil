@@ -1,0 +1,27 @@
+<%
+  # FRONTEND VIEW: About
+  #
+  # Displays the user's description.
+%>
+<h1>About</h1>
+
+<div id="business_card">
+  <!-- Include the identity template -->
+	<div id="basic_infos">
+	  <%= render :template => 'frontend/identity.html.erb' %>
+	</div>
+
+  <!-- Displays the user's description - if confidentiality level enables it -->
+	<div class="description_area">
+	  <% if !@user.user_content.description.blank? %>
+	    <!-- Visitor logged or description is set to public -->
+  		<% if @user.user_content.description_confidential == false || known_user? %>
+  		  <%= (@user.user_content.description).html_safe %>
+  		<% else %>
+  		  <!-- User has a description but the visitor isn't allowed to see it -->
+  		  This information is private ! To unlock it, just ask me by filling a 
+  		  <%= link_to "contact form", @contact_url %>
+  		<% end %>
+    <% end %>
+	</div>
+</div>

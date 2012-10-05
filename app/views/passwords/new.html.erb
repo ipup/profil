@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <style type="text/css">
+    
+	body{
+	height:100%;
+	width:100%;
+    color:#ffffff; /* Couleur personnalisable TEXTE_CARTE */
+    font-size:14px;
+    background: #49aef5; /* Couleur personnalisable FOND */
+    margin:0px;
+    padding:0px;
+	}
+	
+    div.dialog {
+	width: 50em;
+	padding: 10px 4em;
+	margin: 10% auto;
+	background-color: #3c759f; /* Couleur personnalisable CARTE */
+	-moz-box-shadow:0px 0px 15px #000000;
+    -webkit-box-shadow:0px 0px 15px #000000;
+    box-shadow: 0px 0px 15px #000000;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+	font-family:"Century Gothic", Helvetica, sans-serif; /* Police personnalisable POLICE_CARTE */
+    }
+	
+    h1{ 
+	text-align: center;
+	font-family: "Century Gothic", Helvetica, sans-serif;
+	font-size:40px;
+	/* Internet Explorer */
+		filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=135,strength=5);
+    /* Autres navigateurs */
+    text-shadow:3px 3px 5px #000000; 
+	}
+	
+	p{
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	line-height: 1.5em;}
+	
+
+
+	#send_button{
+	cursor:pointer;
+	margin-right:auto;
+	margin-left:auto;
+	padding: 4px 12px;
+	font-size:20px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border:3px solid #08304d;
+    color: #ffffff;
+	background:#256a9b;
+	font-family: "Century Gothic", Helvetica, sans-serif;
+	}
+
+	#send_button:hover  {
+    background:#08304d;
+    color:#ffffff;
+	}
+
+	
+	
+  </style>
+</head>
+
+<body>
+  <div class="dialog">
+    <h1>Forgot your password?</h1>
+    <p><%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email, "Email:" %>
+  <%= f.email_field :email,:placeholder => "Your email" %></p>
+
+
+  <p><%= f.submit "Send me reset password instructions", :id=>"send_button" %></p>
+  
+<% end %></p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div id="social_networking">
+  <table id="social_head">
+    <tr id="social_title">
+    	<td>
+    	  <%= image_tag "iconeTwitterT.png" %>
+      </td>
+    	<td>
+    	  <!-- Display Pseudo - or Name FirstName if pseudo is blank -->
+        <% if !@user.pseudo.empty? %>
+          <label><%= @user.pseudo %></label>
+        <% else %>
+          <% if !@user.first_name.empty? %>
+            <label><%= @user.first_name %></label>
+          <% end %>
+          <% if !@user.name.empty? %>
+            <label><%= @user.name %></label>
+          <% end %>
+        <% end %>
+        <label>'s tweets</label>
+        <%= link_to '(see profile)', 'http://www.twitter.com/'+ @twitter_id.to_s , :target => "_blank" %><br/>
+      </td>
+    </tr>
+  </table>
+  
+  <table id="social_flux">
+    <% @timeline_all.each_with_index do |content, i| %>
+      <% if (i%2)==0 %>
+        <tr>
+          <td class="social_box">
+            <p id="social_date" >
+              <%= content %> ago
+            </p>
+      <% end %>
+      <% if (i%2)==1 %>
+            <%= content %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

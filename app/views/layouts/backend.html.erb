@@ -1,0 +1,91 @@
+<%
+  # LAYOUT: BACKEND
+  #
+  # We don't use it.
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BackEnd</title>
+  <!-- Javascript enable ? -->
+  <noscript>
+    <!-- Redirects after 2sec to home/noJSwarning.html -->
+    <meta http-equiv="refresh" content="2;url=<%= noJS_path %>">
+  </noscript>
+
+  <!-- Includes meta tag -->
+	<%= csrf_meta_tag %>
+	
+	<!-- Includes stylesheets -->
+	<%= stylesheet_link_tag "backend/backend_style", :media => "all" %>
+
+	<!-- Includes Javascript/jQuery -->
+  <%= javascript_include_tag "jquery.min", "jquery.livequery", "rails", "googleanalytics" %>
+	<%= javascript_include_tag "backend/horizontal.scroll", "backend/jquery.easing.1.2" %>
+	<%= javascript_include_tag "jquery-ui.min", "backend/ajax" %>
+	
+	<!-- Custom.html.erb JS/CSS -->
+	<!-- jQuery miniColors:  http://abeautifulsite.net/blog/2011/02/jquery-minicolors-a-color-selector-for-input-controls/ -->
+	<!-- jQuery Font Picker: http://www.fullfatcode.com/2011/04/10/jquery-font-selector-version-2/ -->
+	<%= stylesheet_link_tag "jquery.miniColors", "backend/fontpicker" %>
+	<%= javascript_include_tag "jquery.miniColors.min" %>
+  <%= javascript_include_tag "backend/jquery.fontpicker" %>
+
+  <!-- TinyMCE Hammer -->
+  <%= init_tinymce_hammer %>
+  
+  <!-- For specific JS/CSS on some page --> 
+  <%= yield :head %>
+</head>
+<body>
+	<div id="content">
+		<h1><%= t('.NameUp BackEnd') %></h1>
+		
+		<p id="logout">
+		  <%= link_to(t('.Your Page'), root_path + current_user.domain.to_s, :target => "_blank") %><br/>
+		  <%= link_to(t('.Logout'), destroy_user_session_path) %>
+		</p>
+		
+		<div id="wrapper">
+			<div class="step">
+			  <!-- Alert & Notice -->
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+				
+				<!-- Here goes the main content -->
+  			<%= yield %>
+			</div>
+
+      <!-- Navigation Menu -->
+			<div id="navigation">
+				<ul>
+				  <!-- The ID contains the URL we want to redirect to via ajax -->
+					<li class="transition" id="/backend/account">
+						<%= t('.Account') %>
+					</li>
+					<li class="transition" id="/backend/resume">
+						<%= t('.Resume') %>
+					</li>
+					<li class="transition" id="/backend/social">
+						<%= t('.Social Networks') %>
+					</li>
+					<li class="transition" id="/backend/about">
+						<%= t('.About') %>
+					</li>
+					<li class="transition" id="/backend/custom">
+						<%= t('.Theme') %>
+					</li>
+					<li class="transition" id="/backend/privacy">
+						<%= t('.Confidentiality') %>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Legal Notice (provides a link for the user to delete his account) -->
+		<p id="legal">
+      <%= link_to(t('.Legal Notice'), legal_path, :target => "_blank") %>
+    </p>
+	</div>
+</body>
+</html>

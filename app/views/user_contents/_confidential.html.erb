@@ -1,0 +1,28 @@
+<%= form_for(current_user.user_content, :remote => true) do |f| %>
+  <%= #Switch function for hidden field
+    case var
+      when "description"
+        f.hidden_field :description_confidential, :value => opposite_value(current_user.user_content.description_confidential)          
+      when "file_cv"
+        f.hidden_field :file_cv_confidential, :value => opposite_value(current_user.user_content.file_cv_confidential)
+      when "picture"
+        f.hidden_field :picture_confidential, :value => opposite_value(current_user.user_content.picture_confidential)
+      when "info"
+        f.hidden_field :info_confidential, :value => opposite_value(current_user.user_content.info_confidential)        
+    end
+  %>
+  <%= #Switch function for lock image
+    case var
+      when "description"
+        image_tag(lock_img(current_user.user_content.description_confidential), :class => "padlock")          
+      when "file_cv"
+        image_tag(lock_img(current_user.user_content.file_cv_confidential), :class => "padlock")
+      when "picture"
+        image_tag(lock_img(current_user.user_content.picture_confidential), :class => "padlock padlockPict")
+      when "info"
+        image_tag(lock_img(current_user.user_content.info_confidential), :class => "padlock")         
+    end
+  %>    
+  
+<% end %>
+

@@ -1,0 +1,13 @@
+# config/facebook.yml
+development:
+ app_id: 164654660260832
+ secret_key: 34cebef9773b23b4299ae873c8e29e37
+ callback_url: http://nameup.heroku.com/backend/social
+test:
+ app_id: 164654660260832
+ secret_key: 34cebef9773b23b4299ae873c8e29e37
+ callback_url: http://nameup.heroku.com/backend/social
+production:
+ app_id: 164654660260832
+ secret_key: 34cebef9773b23b4299ae873c8e29e37
+ callback_url: http://nameup.heroku.com/backend/social

@@ -1,0 +1,29 @@
+<% 
+  # BACKEND VIEW: About
+  # 
+  # Just a simple display of a textearea that allow our user to modify his/her description
+  # and its confidentiality level through Ajax.
+%>
+
+<!-- Content -->    
+<h2><%= t('.About') %></h2>
+
+<div class="section_content">
+  <!-- Section Title -->
+  <h3 class="section_title">
+    <%= t('.Your Description')%>
+  </h3>
+  
+  <!-- Lock Function -->
+  <span id="description"> <!-- Enable to modify its content via ajax -->
+    <%= render :partial => 'user_contents/confidential', :locals => { :var => "description" } %>
+  </span>
+  
+  <div class="clear"></div>
+  
+  <!-- Textarea for user_content.description -->
+  <%= form_for(@content) do |f| %>
+    <%= f.tinymce :description, :class => "my_tinymce" %>
+    <%= f.submit t('.Save'), :class => "submit" %>
+  <% end %>
+</div>

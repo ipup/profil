@@ -1,0 +1,141 @@
+<% 
+  # BACKEND VIEW: Custom
+  # 
+  # Everything that is related to customization: fonts, colors, themes, background
+%>
+
+<!-- Includes : stylesheets and javascript -->
+<%= javascript_include_tag "backend/custom" %>
+
+<!-- Content -->
+<h2><%= t('.Themes')%></h2>
+
+<!-- Existing Themes -->
+<div class="section">
+  <h3 class="section_title">
+    <%= t('.Existing Themes')%>
+  </h3><br/>
+  
+  <ul id="themes">
+  	<li><%= render :partial => 'customizations/themes/default' %></li>  
+  	<li><%= render :partial => 'customizations/themes/green' %></li>
+  	<li><%= render :partial => 'customizations/themes/silver' %></li>
+  	<li><%= render :partial => 'customizations/themes/red' %></li>
+  	<li><%= render :partial => 'customizations/themes/yellow' %></li>
+  	<li><%= render :partial => 'customizations/themes/beige' %></li>
+  </ul>
+</div>
+
+<!-- Form for user's preferences: colors & polices -->
+<%= form_for(@custom) do |f| %>
+  <div class="section">
+    <h3 class="section_title">
+      <%= t('.Customize it!')%>
+    </h3><br/> 
+
+    <!-- First block of color (backgrounds color) -->
+    <ul id="container_color">
+      <li>
+        <%= f.label t('.Color background :') %>    
+		    <%= f.text_field :color_bground, :class => "colors", :size => "6" %>
+	    </li>
+		  <li>
+        <%= f.label t('.Color lines :') %>    
+		    <%= f.text_field :color_lines, :class => "colors", :size => "6" %>
+	    </li>
+      <li>
+        <%= f.label t('.Color card :') %>    
+		    <%= f.text_field :color_card, :class => "colors", :size => "6" %>
+	    </li>
+      <li>
+        <%= f.label t('.Color button :') %>    
+		    <%= f.text_field :color_button, :class => "colors", :size => "6" %>
+	    </li>
+    </ul>
+    
+    <!-- Second block of color (fonts & colors) -->
+    <!-- Fonts -->
+    <div id="perso_fonts">
+	    <!-- jQuery Fonts Picker -->
+	    <ul id="text_font">
+	    	<li>
+			    <%= f.label t('.Font title :') %>
+			    <%= f.text_field :font_title, :class => "fontselect", :size => "12" %>
+		    </li>
+		    <li>
+          <%= f.label t('.Font CV field title :') %>
+          <%= f.text_field :font_field_title, :class => "fontselect", :size => "12" %>
+        </li>
+		    <li>
+				<%= f.label t('.Font text lines :') %>
+			    <%= f.text_field :font_lines, :class => "fontselect", :size => "12" %>
+		    </li>
+		    <li>
+				<%= f.label t('.Font text card :') %>
+			    <%= f.text_field :font_card, :class => "fontselect", :size => "12" %>
+		    </li>
+	    </ul>
+	    
+	    <!-- Colors -->
+	    <ul id="text_color">
+		    <li>
+			    <%= f.label t('.Color title :') %>    
+			    <%= f.text_field :color_title, :class => "colors", :size => "6" %>
+		    </li>
+		    <li>
+          <%= f.label t('.Color CV field title :') %>    
+          <%= f.text_field :color_field_title, :class => "colors", :size => "6" %>
+        </li>
+		    <li>
+			    <%= f.label t('.Color text lines :') %>    
+			    <%= f.text_field :color_text_lines, :class => "colors", :size => "6" %>
+		    </li>
+		    <li>
+			    <%= f.label t('.Color text card :') %>    
+			    <%= f.text_field :color_text_card, :class => "colors", :size => "6" %>
+		    </li>
+      </ul>
+    </div>
+    
+    <%= f.submit t('.Save'), :class=> "submit" %>
+  </div>
+<% end %>
+  
+<!-- Form for user's preferences: background image -->
+<%= form_for @custom, :html => { :multipart => true } do |ff| %>
+  <div class="section">
+    <!-- Background Uploader -->
+    <p>
+      <h4 class="section_title"><%= t('.Add a new Background :') %></h4>
+      <%= ff.file_field :img_background %>
+    </p>
+    
+    <!-- Display Background options and thumbnail if existing -->
+		<% if @custom.img_background? %>
+			<table class="clear background_setting">
+        <tr>
+          <td id="background_text"><%= t('.Settings') %> :</td>
+          <td id="background_radio">
+            <%= ff.radio_button(:background_mosaic, true ) %> <%= ff.label :background_mosaic, t('.Mosaic')%>
+            <%= ff.radio_button(:background_mosaic, false) %> <%= ff.label :background_mosaic, t('.Center')%>
+          </td>
+        </tr>
+      </table>
+      
+	    <p class="clear">	      
+        <h4 class="section_title"><%= t('.Current Background') %> :</h4>
+        <%= image_tag(@custom.img_background_url(:thumb)) %><br />
+        <%= ff.hidden_field :img_background_cache %>	      
+	    </p>
+	    
+			<p>
+	      <label>
+	        <%= ff.check_box :remove_img_background %>
+	        <%= t('.Remove Background') %>
+	      </label>
+	    </p>
+    <% end %>
+    
+    <%= ff.submit t('.Save'), :class=> "submit" %>
+   </div>
+<% end %>

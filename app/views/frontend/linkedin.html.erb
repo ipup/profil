@@ -1,0 +1,76 @@
+<div id="social_networking">
+  <table id="social_head">
+    <tr id="social_title">
+    	<td>
+    	  <%= image_tag "iconeLinkedInT.png" %>
+    	</td>
+    	<td>
+    	  <!-- Display Pseudo - or Name FirstName if pseudo is blank -->
+        <% if !@user.pseudo.empty? %>
+          <label><%= @user.pseudo %></label>
+        <% else %>
+          <% if !@user.first_name.empty? %>
+            <label><%= @user.first_name %></label>
+          <% end %>
+          <% if !@user.name.empty? %>
+            <label><%= @user.name %></label>
+          <% end %>
+        <% end %>
+        <label>'s informations</label>
+        <%= link_to '(see profile)', 'http://www.linkedin.com/profile/view?id='+@linkedin_id, :target => "_blank" %><br/>
+      </td>
+    </tr>
+  </table>
+  
+  <table id="social_flux">
+    <% if @currentStatus %>
+      <tr>
+        <td class="social_box">
+          <b>Last status :</b><br/>
+          <%= @currentStatus %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @eduSchool %>
+      <tr>
+        <td class="social_box">
+          <b>Studies :</b><br/>
+          <% @eduSchool.each do |school| %>
+            <%= school %><br/>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @summary %>
+      <tr>
+        <td class="social_box">
+        <b>Summary :</b><br/>
+        <%= @summary %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @positionsFirm %>
+      <tr>
+        <td class="social_box">
+        <b>Firms I have worked for :</b><br/>
+        <% @positionsFirm.each_with_index do |p, i| %>
+          <% if (i%2) == 1 %>
+            <em><%= p %></em><br/>
+          <% end %>
+          <% if (i%2) == 0 %>
+            <%= p %> at
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @nb_connections %>
+      <tr>
+        <td class="social_box">
+        <b>Number of connections :</b><br/>
+        <%= @nb_connections %>
+        </td>
+      </tr>
+    <% end %>    
+  </table>
+</div>
